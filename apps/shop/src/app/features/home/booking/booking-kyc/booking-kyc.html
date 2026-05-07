@@ -1,0 +1,39 @@
+<div class="booking-kyc">
+  <h3>Step 4: KYC & Agreements</h3>
+
+  <form [formGroup]="form" class="kyc-form">
+    <div class="form-group">
+      <label for="aadhaarNumber">Aadhaar Number *</label>
+      <input id="aadhaarNumber" formControlName="aadhaarNumber" placeholder="123412341234" />
+      <span class="help-text">12 digits required for verification</span>
+      <span class="error-message" *ngIf="hasError('aadhaarNumber')">{{ getError('aadhaarNumber') }}</span>
+    </div>
+
+    <div class="form-group">
+      <label for="drivingLicenseDocumentId">Driving License Upload Reference *</label>
+      <input id="drivingLicenseDocumentId" formControlName="drivingLicenseDocumentId" placeholder="dl_doc_abc123" />
+      <span class="help-text">Use your uploaded document reference</span>
+      <span class="error-message" *ngIf="hasError('drivingLicenseDocumentId')">{{ getError('drivingLicenseDocumentId') }}</span>
+    </div>
+
+    <div class="checkbox-group">
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="agreeToTerms" />
+        <span>I accept the Terms & Conditions</span>
+      </label>
+      <span class="error-message" *ngIf="hasError('agreeToTerms')">{{ getError('agreeToTerms') }}</span>
+    </div>
+
+    <div class="checkbox-group">
+      <label class="checkbox-label">
+        <input type="checkbox" formControlName="agreeToPenaltyPolicy" />
+        <span>I accept penalties (late return: ₹200/day, misuse: ₹2000, battery damage: ₹5000)</span>
+      </label>
+      <span class="error-message" *ngIf="hasError('agreeToPenaltyPolicy')">{{ getError('agreeToPenaltyPolicy') }}</span>
+    </div>
+  </form>
+
+  <button class="btn btn--primary btn--full" (click)="onNext()" [disabled]="form.invalid">
+    Continue to Payment
+  </button>
+</div>

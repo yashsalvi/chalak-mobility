@@ -1,0 +1,42 @@
+<div class="search-container" [class.open]="isOpen">
+  <button class="search-trigger" [class.active]="isOpen" (click)="toggleSearch()" title="Search vehicles">
+    <lucide-icon name="search" size="18"></lucide-icon>
+  </button>
+
+  <div class="search-dropdown" [class.open]="isOpen">
+    <div class="search-input-wrapper">
+      <lucide-icon name="search" size="18"></lucide-icon>
+      <input
+        type="text"
+        placeholder="Search vehicles (name, type)..."
+        [value]="searchForm.get('query')?.value || ''"
+        (input)="onQueryChange($event)"
+        class="search-input"
+      />
+    </div>
+
+    <div class="select-wrapper">
+      <select
+        [value]="searchForm.get('type')?.value || ''"
+        (change)="onTypeChange($event)"
+        class="search-filter"
+      >
+        <option value="">All Types</option>
+        <option value="Scooter">Scooter</option>
+        <option value="Tempo">Tempo</option>
+        <option value="Delivery">Delivery</option>
+      </select>
+      <lucide-icon name="chevron-down" size="16" class="dropdown-icon"></lucide-icon>
+    </div>
+
+    <div class="search-results">
+      <div *ngIf="filteredVehicles.length === 0" class="no-results">
+        <p>No vehicles found</p>
+      </div>
+      <div *ngFor="let vehicle of filteredVehicles" class="result-item" (click)="selectVehicle(vehicle)">
+        <div class="result-name">{{ vehicle.name }}</div>
+        <div class="result-meta">{{ vehicle.type }} • ₹{{ vehicle.price }}/day</div>
+      </div>
+    </div>
+  </div>
+</div>

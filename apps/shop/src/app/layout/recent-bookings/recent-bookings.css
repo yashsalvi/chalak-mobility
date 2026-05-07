@@ -1,0 +1,204 @@
+.recent-bookings-container {
+  background: transparent;
+  border: none;
+  border-radius: 0;
+  padding: 16px;
+  max-width: none;
+  margin: 0;
+}
+
+.recent-bookings-section.compact .recent-bookings-container {
+  background: rgba(4, 16, 24, 0.95);
+  border: 1px solid rgba(0, 230, 118, 0.2);
+  border-radius: 12px;
+  padding: 12px;
+}
+
+.bookings-header {
+  margin-bottom: 16px;
+}
+
+.bookings-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
+  color: #eef8fb;
+}
+
+.recent-bookings-section.compact .bookings-header h3 {
+  font-size: 1rem;
+}
+
+.bookings-subtitle {
+  margin: 4px 0 0;
+  color: #a8b8c4;
+  font-size: 0.85rem;
+}
+
+.recent-bookings-section.compact .bookings-subtitle {
+  font-size: 0.8rem;
+}
+
+.no-bookings {
+  text-align: center;
+  padding: 20px 0;
+}
+
+.empty-icon {
+  font-size: 2.5rem;
+  margin-bottom: 12px;
+  color: rgba(0, 230, 118, 0.3);
+}
+
+.no-bookings p {
+  color: #b0bec5;
+  margin: 0 0 16px 0;
+  font-size: 0.95rem;
+}
+
+.no-bookings .btn-primary {
+  width: 100%;
+  padding: 12px 16px;
+}
+
+.bookings-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  max-height: 300px;
+  overflow-y: auto;
+}
+
+.recent-bookings-section.compact .bookings-list {
+  max-height: 220px;
+}
+
+.booking-card {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(0, 230, 118, 0.1);
+  border-radius: 8px;
+  padding: 12px;
+  transition: transform 200ms ease, border-color 200ms ease, background 200ms ease;
+}
+
+.recent-bookings-section.compact .booking-card {
+  padding: 10px;
+  border-radius: 10px;
+}
+
+.booking-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(0, 230, 118, 0.2);
+}
+
+.booking-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 10px;
+}
+
+.vehicle-info {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+}
+
+.vehicle-icon {
+  color: rgba(0, 230, 118, 0.6);
+  flex-shrink: 0;
+}
+
+.vehicle-name {
+  color: #eef8fb;
+  font-weight: 500;
+  font-size: 0.95rem;
+}
+
+.booking-id {
+  color: #78909c;
+  font-size: 0.8rem;
+  margin-top: 2px;
+}
+
+.status {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 0.75rem;
+  padding: 4px 8px;
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+.status-confirmed {
+  background: rgba(0, 230, 118, 0.2);
+  color: #00e676;
+  border: 1px solid rgba(0, 230, 118, 0.3);
+}
+
+.status-pending {
+  background: rgba(255, 193, 7, 0.2);
+  color: #ffc107;
+  border: 1px solid rgba(255, 193, 7, 0.3);
+}
+
+.status-completed {
+  background: rgba(76, 175, 80, 0.2);
+  color: #4caf50;
+  border: 1px solid rgba(76, 175, 80, 0.3);
+}
+
+.booking-dates {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.date-item {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #b0bec5;
+  font-size: 0.85rem;
+}
+
+.cost {
+  color: #00e676;
+  font-weight: 600;
+  font-size: 0.95rem;
+}
+
+.btn-view {
+  width: 100%;
+  background: rgba(0, 230, 118, 0.15);
+  color: #00e676;
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  border-radius: 4px;
+  padding: 8px 12px;
+  font-size: 0.85rem;
+  cursor: pointer;
+  transition: all 200ms ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+}
+
+.recent-bookings-section.compact .btn-view {
+  width: auto;
+  padding: 8px 14px;
+}
+
+.btn-view:hover {
+  background: rgba(0, 230, 118, 0.25);
+  border-color: rgba(0, 230, 118, 0.5);
+}
+
+@media (max-width: 768px) {
+  .recent-bookings-container {
+    max-width: 100%;
+  }
+}

@@ -1,0 +1,240 @@
+<div class="booking-details">
+  <h3>Step 3: Booking Details</h3>
+
+  <form [formGroup]="form" class="details-form">
+    <!-- Contact Information Section -->
+    <div class="section">
+      <h4>Contact Information</h4>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">First Name *</label>
+          <input
+            type="text"
+            id="firstName"
+            formControlName="firstName"
+            [class.has-error]="hasError('firstName')"
+            aria-label="First name"
+            placeholder="John"
+          />
+          <span class="error-message" *ngIf="hasError('firstName')">
+            {{ getError('firstName') }}
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">Last Name *</label>
+          <input
+            type="text"
+            id="lastName"
+            formControlName="lastName"
+            [class.has-error]="hasError('lastName')"
+            aria-label="Last name"
+            placeholder="Doe"
+          />
+          <span class="error-message" *ngIf="hasError('lastName')">
+            {{ getError('lastName') }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">Email Address *</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          [class.has-error]="hasError('email')"
+          aria-label="Email address"
+          placeholder="john@example.com"
+        />
+        <span class="error-message" *ngIf="hasError('email')">
+          {{ getError('email') }}
+        </span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group" style="flex: 0 0 120px">
+          <label for="phoneCountryCode">Country Code *</label>
+          <select
+            id="phoneCountryCode"
+            formControlName="phoneCountryCode"
+            aria-label="Phone country code"
+          >
+            <option *ngFor="let country of countryPhoneCodes" [value]="country.code">
+              {{ country.code }} ({{ country.country }})
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group" style="flex: 1">
+          <label for="phone">Phone Number *</label>
+          <input
+            type="tel"
+            id="phone"
+            formControlName="phone"
+            [class.has-error]="hasError('phone')"
+            aria-label="Phone number"
+            placeholder="1234567890"
+          />
+          <span class="error-message" *ngIf="hasError('phone')">
+            {{ getError('phone') }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dateOfBirth">Date of Birth *</label>
+        <input
+          type="date"
+          id="dateOfBirth"
+          formControlName="dateOfBirth"
+          [class.has-error]="hasError('dateOfBirth')"
+          aria-label="Date of birth"
+        />
+        <span class="help-text">Must be at least {{ minAge }} years old</span>
+        <span class="error-message" *ngIf="hasError('dateOfBirth')">
+          {{ getError('dateOfBirth') }}
+        </span>
+      </div>
+    </div>
+
+    <!-- License Information Section -->
+    <div class="section">
+      <h4>Driver's License</h4>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="licenseNumber">License Number *</label>
+          <input
+            type="text"
+            id="licenseNumber"
+            formControlName="licenseNumber"
+            [class.has-error]="hasError('licenseNumber')"
+            aria-label="Driver's license number"
+            placeholder="DL123456"
+          />
+          <span class="error-message" *ngIf="hasError('licenseNumber')">
+            {{ getError('licenseNumber') }}
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="licenseCountry">License Country *</label>
+          <select
+            id="licenseCountry"
+            formControlName="licenseCountry"
+            aria-label="Driver's license country"
+          >
+            <option value="IN">India</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="licenseExpiryDate">License Expiry Date *</label>
+        <input
+          type="date"
+          id="licenseExpiryDate"
+          formControlName="licenseExpiryDate"
+          [class.has-error]="hasError('licenseExpiryDate')"
+          aria-label="Driver's license expiry date"
+        />
+        <span class="error-message" *ngIf="hasError('licenseExpiryDate')">
+          {{ getError('licenseExpiryDate') }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Pickup Location Section -->
+    <div class="section">
+      <h4>Pickup Location</h4>
+
+      <div class="form-group">
+        <label for="pickupType">Pickup Type *</label>
+        <select
+          id="pickupType"
+          formControlName="pickupType"
+          aria-label="Pickup location type"
+        >
+          <option *ngFor="let type of locationTypes" [value]="type.value">
+            {{ type.label }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="form.get('pickupType')?.value === 'custom'">
+        <label for="pickupAddress">Address</label>
+        <input
+          type="text"
+          id="pickupAddress"
+          formControlName="pickupAddress"
+          aria-label="Custom pickup address"
+          placeholder="Street address"
+        />
+      </div>
+
+      <div class="form-group" *ngIf="form.get('pickupType')?.value === 'custom'">
+        <label for="pickupCity">City</label>
+        <input
+          type="text"
+          id="pickupCity"
+          formControlName="pickupCity"
+          aria-label="Pickup city"
+          placeholder="City name"
+        />
+      </div>
+    </div>
+
+    <!-- Dropoff Location Section -->
+    <div class="section">
+      <h4>Dropoff Location</h4>
+
+      <div class="form-group">
+        <label for="dropoffType">Dropoff Type *</label>
+        <select
+          id="dropoffType"
+          formControlName="dropoffType"
+          aria-label="Dropoff location type"
+        >
+          <option *ngFor="let type of locationTypes" [value]="type.value">
+            {{ type.label }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="form.get('dropoffType')?.value === 'custom'">
+        <label for="dropoffAddress">Address</label>
+        <input
+          type="text"
+          id="dropoffAddress"
+          formControlName="dropoffAddress"
+          aria-label="Custom dropoff address"
+          placeholder="Street address"
+        />
+      </div>
+
+      <div class="form-group" *ngIf="form.get('dropoffType')?.value === 'custom'">
+        <label for="dropoffCity">City</label>
+        <input
+          type="text"
+          id="dropoffCity"
+          formControlName="dropoffCity"
+          aria-label="Dropoff city"
+          placeholder="City name"
+        />
+      </div>
+    </div>
+
+  </form>
+
+  <!-- Action Button -->
+  <button
+    class="btn btn--primary btn--full"
+    (click)="onNext()"
+    [disabled]="form.invalid"
+    aria-label="Continue to KYC step"
+  >
+    Continue to KYC
+  </button>
+</div>

@@ -1,0 +1,31 @@
+<section class="how">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>How It Works</h2>
+      <p>Start your EV journey in 3 simple steps</p>
+    </div>
+
+    <div class="steps">
+
+      <div class="step" *ngFor="let s of steps; let i = index">
+
+        <div class="circle">
+          <span>{{ i + 1 }}</span>
+        </div>
+
+        <div class="icon">
+          <lucide-icon *ngIf="s.icon === 'book'" size="28" name="calendar-check"></lucide-icon>
+<lucide-icon *ngIf="s.icon === 'pickup'" size="28" name="map-pin"></lucide-icon>
+<lucide-icon *ngIf="s.icon === 'earn'" size="28" name="trending-up"></lucide-icon>
+        </div>
+
+        <h3>{{ s.title }}</h3>
+        <p>{{ s.desc }}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

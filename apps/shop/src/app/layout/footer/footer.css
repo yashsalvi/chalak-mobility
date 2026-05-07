@@ -1,0 +1,133 @@
+.footer {
+  background: #081821;
+  padding: 50px 20px 20px;
+}
+
+.footer-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 30px;
+  align-items: start;
+  justify-items: stretch;
+}
+
+.footer-brand {
+  display: grid;
+  justify-content: start;
+  text-align: left;
+}
+
+.footer-brand h3 {
+  margin: 0;
+  font-size: 1.4rem;
+  text-align: left;
+}
+
+.footer-brand p {
+  margin: 0;
+  color: #b0bec5;
+  max-width: 300px;
+  text-align: left;
+}
+
+/* LINKS */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.links a {
+  color: #b0bec5;
+  text-decoration: none;
+  transition: 0.3s;
+}
+
+.links a:hover {
+  color: var(--primary-green);
+}
+
+/* CONTACT */
+.contact {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.contact button,
+.contact select,
+.select-wrapper {
+  min-width: 160px;
+  max-width: 100%;
+}
+
+.contact button {
+  width: auto;
+  padding: 12px 18px;
+  border-radius: 8px;
+  flex: 0 0 auto;
+}
+
+.select-wrapper {
+  position: relative;
+  width: 100%;
+  max-width: 220px;
+}
+
+.select-wrapper select {
+  width: 100%;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  background-color: #0f2a3d;
+  color: #eef8fb;
+  color-scheme: dark;
+  accent-color: #7de18e;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  padding: 12px 14px;
+  padding-right: 40px;
+  cursor: pointer;
+  transition: background-color 150ms ease, border-color 150ms ease, color 150ms ease;
+  background-clip: padding-box;
+  box-shadow: none;
+}
+
+.select-wrapper select:active,
+.select-wrapper select:focus {
+  background-color: #0f2a3d;
+}
+
+.select-wrapper select:focus-visible {
+  outline: 2px solid rgba(0, 230, 118, 0.35);
+  outline-offset: 2px;
+}
+
+.select-wrapper select::-ms-expand {
+  display: none;
+}
+
+.select-wrapper lucide-icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: #eef8fb;
+}
+
+.select-wrapper select:focus {
+  outline: 2px solid rgba(0, 230, 118, 0.35);
+}
+
+/* COPYRIGHT */
+.footer p {
+  text-align: center;
+  margin: 30px auto 0;
+  font-size: 0.8rem;
+  color: #78909c;
+  max-width: 920px;
+}

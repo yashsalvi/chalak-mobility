@@ -1,0 +1,38 @@
+<section class="business">
+  <div class="container business-grid">
+
+    <!-- LEFT CONTENT -->
+    <div class="content">
+      <h2>EV Fleet Solutions for Businesses</h2>
+
+      <p>
+        Power your delivery or logistics operations with cost-effective electric vehicles.
+      </p>
+
+      <div class="benefits">
+        <div class="item" *ngFor="let b of benefits">
+
+          <div class="icon">
+            <lucide-icon *ngIf="b.icon === 'truck'" size="22" name="truck"></lucide-icon>
+<lucide-icon *ngIf="b.icon === 'profit'" size="22" name="trending-up"></lucide-icon>
+<lucide-icon *ngIf="b.icon === 'secure'" size="22" name="shield-check"></lucide-icon>
+          </div>
+
+          <div>
+            <h4>{{ b.title }}</h4>
+            <p>{{ b.desc }}</p>
+          </div>
+
+        </div>
+      </div>
+
+      <button class="btn-primary">Contact for Fleet Deals</button>
+    </div>
+
+    <!-- RIGHT VISUAL -->
+    <div class="image">
+      <img src="assets/business-ev.webp" alt="Business EV Fleet" />
+    </div>
+
+  </div>
+</section>

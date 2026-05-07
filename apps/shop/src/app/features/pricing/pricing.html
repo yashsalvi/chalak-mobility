@@ -1,0 +1,41 @@
+<section class="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>Simple, Transparent Pricing</h2>
+      <p style="padding: 0 25rem;">Choose a plan that fits your earning style</p>
+    </div>
+
+    <div class="grid">
+
+      <div 
+        class="plan" 
+        *ngFor="let p of plans"
+        [class.highlight]="p.highlight"
+      >
+
+        <div class="tag" *ngIf="p.highlight">Best Value</div>
+
+        <h3>{{ p.name }}</h3>
+
+        <div class="price">
+          ₹{{ p.price }}
+          <span *ngIf="p.name === 'Daily'">/day</span>
+          <span *ngIf="p.name === 'Weekly'">/week</span>
+          <span *ngIf="p.name === 'Monthly'">/month</span>
+        </div>
+
+        <p class="desc">{{ p.desc }}</p>
+
+        <ul>
+          <li *ngFor="let f of p.features">✔ {{ f }}</li>
+        </ul>
+
+        <button class="btn-primary">Choose Plan</button>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>
