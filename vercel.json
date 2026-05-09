@@ -19,10 +19,5 @@
   ],
   "env": {
     "NODE_ENV": "production"
-  },
-  "functions": {
-    "dist/apps/shop/server/main.server.js": {
-      "maxDuration": 10
-    }
   }
 }
