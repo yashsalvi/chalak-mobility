@@ -1,0 +1,28 @@
+{
+  "version": 2,
+  "name": "chalak-mobility",
+  "builds": [
+    {
+      "src": "dist/apps/shop/server/main.server.js",
+      "use": "@vercel/node"
+    },
+    {
+      "src": "dist/apps/shop/browser/**/*",
+      "use": "@vercel/static"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/(.*)",
+      "dest": "dist/apps/shop/server/main.server.js"
+    }
+  ],
+  "env": {
+    "NODE_ENV": "production"
+  },
+  "functions": {
+    "dist/apps/shop/server/main.server.js": {
+      "maxDuration": 10
+    }
+  }
+}

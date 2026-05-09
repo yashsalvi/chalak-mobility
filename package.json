@@ -13,6 +13,7 @@
     "lint:shop": "npx nx lint shop",
     "lint:api": "npx nx lint api",
     "build": "cd apps/api && npx esbuild src/main.ts --bundle --platform=node --format=cjs --outfile=dist/main.js --external:express --external:mongoose --external:bcrypt --external:jsonwebtoken --external:zod && cp package.json dist/ && cd dist && npm install --production",
+    "vercel-build": "npx nx build shop --configuration=production",
     "serve": "npx nx serve",
     "test": "npx nx test",
     "lint": "npx nx lint"
