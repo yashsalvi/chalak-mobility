@@ -1,13 +1,15 @@
 import { Component } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 
 @Component({
   selector: 'app-business',
   standalone: true,
   imports: [
     CommonModule,
-LucideAngularModule
+    LucideAngularModule,
+    TranslatePipe
   ],
   templateUrl: './business.html',
   styleUrl: './business.css',

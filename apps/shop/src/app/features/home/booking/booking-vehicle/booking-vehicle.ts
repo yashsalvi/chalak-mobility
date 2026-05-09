@@ -21,6 +21,7 @@ import { LucideAngularModule } from 'lucide-angular';
 import { VehicleService } from '../services/vehicle.service';
 import { Observable, of } from 'rxjs';
 import { catchError, finalize } from 'rxjs/operators';
+import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
 
 /**
  * Vehicle Selection Step Component
@@ -29,7 +30,7 @@ import { catchError, finalize } from 'rxjs/operators';
 @Component({
   selector: 'app-booking-vehicle',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule],
+  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule, TranslatePipe],
   templateUrl: './booking-vehicle.html',
   styleUrls: ['./booking-vehicle.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

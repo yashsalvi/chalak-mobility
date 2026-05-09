@@ -20,6 +20,7 @@ import { CommonModule } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
 import { Subject, takeUntil } from 'rxjs';
 import { I18nService, SupportedLocale, Locale } from '../../../services/i18n.service';
+import { TranslatePipe } from '../../pipes/translate.pipe';
 
 @Component({
   selector: 'app-language-switcher',
@@ -27,6 +28,7 @@ import { I18nService, SupportedLocale, Locale } from '../../../services/i18n.ser
   imports: [
     CommonModule,
     LucideAngularModule,
+    TranslatePipe,
   ],
   templateUrl: './language-switcher.html',
   styleUrls: ['./language-switcher.css'],

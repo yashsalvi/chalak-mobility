@@ -9,6 +9,7 @@ import {
 import { LucideAngularModule } from 'lucide-angular';
 import { AuthService } from '../services/auth.service';
 import { Subject, takeUntil } from 'rxjs';
+import { TranslatePipe } from '../../../shared/pipes/translate.pipe';
 
 @Component({
   selector: 'app-profile',
@@ -16,6 +17,7 @@ import { Subject, takeUntil } from 'rxjs';
   imports: [
     CommonModule,
     LucideAngularModule,
+    TranslatePipe,
   ],
   templateUrl: './profile.html',
   styleUrls: ['./profile.css'],

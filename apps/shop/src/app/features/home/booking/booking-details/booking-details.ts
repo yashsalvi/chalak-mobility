@@ -9,6 +9,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { BookingDetails, BookingContactInfo, VALIDATION_RULES } from '../models/booking.model';
+import { TranslatePipe } from '../../../../shared/pipes/translate.pipe';
 
 /**
  * Booking Details Step Component
@@ -17,7 +18,7 @@ import { BookingDetails, BookingContactInfo, VALIDATION_RULES } from '../models/
 @Component({
   selector: 'app-booking-details',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, TranslatePipe],
   templateUrl: './booking-details.html',
   styleUrls: ['./booking-details.css'],
   changeDetection: ChangeDetectionStrategy.OnPush,

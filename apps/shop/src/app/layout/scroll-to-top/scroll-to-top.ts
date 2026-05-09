@@ -2,11 +2,12 @@ import { Component, HostListener, OnInit, PLATFORM_ID, Inject } from '@angular/c
 import { CommonModule } from '@angular/common';
 import { isPlatformBrowser } from '@angular/common';
 import { LucideAngularModule } from 'lucide-angular';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 
 @Component({
   selector: 'app-scroll-to-top',
   standalone: true,
-  imports: [CommonModule, LucideAngularModule],
+  imports: [CommonModule, LucideAngularModule, TranslatePipe],
   templateUrl: './scroll-to-top.html',
   styleUrl: './scroll-to-top.css',
 })

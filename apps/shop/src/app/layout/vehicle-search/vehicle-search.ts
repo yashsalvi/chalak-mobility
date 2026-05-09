@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { ReactiveFormsModule, FormBuilder, FormGroup } from '@angular/forms';
 import { LucideAngularModule } from 'lucide-angular';
 import { HttpClient } from '@angular/common/http';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 
 interface Vehicle {
   id: string;
@@ -15,7 +16,7 @@ interface Vehicle {
 @Component({
   selector: 'app-vehicle-search',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule],
+  imports: [CommonModule, ReactiveFormsModule, LucideAngularModule, TranslatePipe],
   templateUrl: './vehicle-search.html',
   styleUrl: './vehicle-search.css',
 })

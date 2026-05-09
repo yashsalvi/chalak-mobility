@@ -3,13 +3,15 @@ import { CommonModule } from '@angular/common';
 import {
   LucideAngularModule
 } from 'lucide-angular';
+import { TranslatePipe } from '../../shared/pipes/translate.pipe';
 
 @Component({
   selector: 'app-why-choose',
   standalone: true,
   imports: [
     CommonModule,
-LucideAngularModule
+    LucideAngularModule,
+    TranslatePipe
   ],
   templateUrl: './why-choose.html',
   styleUrl: './why-choose.css',
