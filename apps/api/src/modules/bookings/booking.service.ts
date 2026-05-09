@@ -1,6 +1,7 @@
 import { existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
 import { randomUUID } from 'node:crypto';
+import { fileURLToPath } from 'node:url';
 import {
   BookingRecord,
   BookingStatus,
@@ -44,7 +45,8 @@ export const LIFECYCLE_RULES = {
 } as const;
 
 export class BookingService {
-  private readonly dataFile = path.join(__dirname, 'bookings.db.json');
+  private readonly __dirname = path.dirname(fileURLToPath(import.meta.url));
+  private readonly dataFile = path.join(this.__dirname, 'bookings.db.json');
   private readonly byId = new Map<string, BookingRecord>();
   private readonly byReference = new Map<string, BookingRecord>();
   private readonly byIdempotencyKey = new Map<string, BookingRecord>();
