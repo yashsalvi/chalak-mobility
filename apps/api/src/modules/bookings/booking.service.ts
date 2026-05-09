@@ -208,7 +208,7 @@ export class BookingService {
     return next;
   }
 
-  private // Lifecycle Management Methods
+  // Lifecycle Management Methods
   private createLifecycleEvent(bookingId: string, type: BookingLifecycleEvent['type'], oldStatus?: BookingStatus, newStatus?: BookingStatus, metadata?: any, automated: boolean = true, processedBy?: string): void {
     const event: BookingLifecycleEvent = {
       type,
