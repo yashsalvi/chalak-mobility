@@ -1,27 +1,17 @@
 {
   "version": 2,
-  "name": "chalak-mobility",
-  "builds": [
+  "buildCommand": "npm run vercel-build",
+  "outputDirectory": "dist/apps/shop/browser",
+  "installCommand": "npm install",
+  "framework": "angular",
+  "rewrites": [
     {
-      "src": "dist/apps/shop/server/main.server.mjs",
-      "use": "@vercel/node"
+      "source": "/api/(.*)",
+      "destination": "https://chalak-mobility-api.onrender.com/api/$1"
     },
     {
-      "src": "dist/apps/shop/browser/**/*",
-      "use": "@vercel/static"
+      "source": "/(.*)",
+      "destination": "/index.html"
     }
-  ],
-  "routes": [
-    {
-      "src": "/api/(.*)",
-      "dest": "https://chalak-mobility-api.onrender.com/api/$1"
-    },
-    {
-      "src": "/(.*)",
-      "dest": "dist/apps/shop/server/main.server.mjs"
-    }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
+  ]
 }
