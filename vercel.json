@@ -3,7 +3,7 @@
   "name": "chalak-mobility",
   "builds": [
     {
-      "src": "dist/apps/shop/server/main.server.js",
+      "src": "dist/apps/shop/server/server.mjs",
       "use": "@vercel/node"
     },
     {
@@ -13,8 +13,12 @@
   ],
   "routes": [
     {
+      "src": "/api/(.*)",
+      "dest": "https://chalak-mobility-api.onrender.com/api/$1"
+    },
+    {
       "src": "/(.*)",
-      "dest": "dist/apps/shop/server/main.server.js"
+      "dest": "dist/apps/shop/server/server.mjs"
     }
   ],
   "env": {
