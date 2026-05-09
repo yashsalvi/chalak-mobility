@@ -12,7 +12,7 @@
     "test:api": "nx test api",
     "lint:shop": "nx lint shop",
     "lint:api": "nx lint api",
-    "build": "node_modules/.bin/esbuild apps/api/src/main.ts --bundle=true --platform=node --format=esm --outdir=apps/api/dist --sourcemap --external:express --external:mongoose --external:bcrypt --external:jsonwebtoken --external:zod",
+    "build": "cd apps/api && npx tsc --project tsconfig.app.json --outDir dist",
     "serve": "nx serve",
     "test": "nx test",
     "lint": "nx lint"
