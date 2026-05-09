@@ -3,7 +3,7 @@
   "name": "chalak-mobility",
   "builds": [
     {
-      "src": "dist/apps/shop/server/server.mjs",
+      "src": "dist/apps/shop/server/main.server.mjs",
       "use": "@vercel/node"
     },
     {
@@ -18,7 +18,7 @@
     },
     {
       "src": "/(.*)",
-      "dest": "dist/apps/shop/server/server.mjs"
+      "dest": "dist/apps/shop/server/main.server.mjs"
     }
   ],
   "env": {
