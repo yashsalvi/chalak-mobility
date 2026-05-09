@@ -12,7 +12,7 @@
     "test:api": "nx test api",
     "lint:shop": "nx lint shop",
     "lint:api": "nx lint api",
-    "build": "node_modules/.bin/nx build api --production",
+    "build": "node_modules/.bin/esbuild apps/api/src/main.ts --bundle=false --platform=node --format=cjs --outdir=apps/api/dist --sourcemap --outExtension:.js=.js",
     "serve": "nx serve",
     "test": "nx test",
     "lint": "nx lint"
