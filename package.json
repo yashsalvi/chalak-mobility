@@ -12,7 +12,7 @@
     "test:api": "nx test api",
     "lint:shop": "nx lint shop",
     "lint:api": "nx lint api",
-    "build": "nx build",
+    "build": "npx nx build api",
     "serve": "nx serve",
     "test": "nx test",
     "lint": "nx lint"
