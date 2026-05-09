@@ -12,7 +12,7 @@
     "test:api": "nx test api",
     "lint:shop": "nx lint shop",
     "lint:api": "nx lint api",
-    "build": "cd apps/api && npx tsc --project tsconfig.app.json --outDir dist",
+    "build": "cd apps/api && npx tsc --project tsconfig.app.json --outDir ../../dist",
     "serve": "nx serve",
     "test": "nx test",
     "lint": "nx lint"
