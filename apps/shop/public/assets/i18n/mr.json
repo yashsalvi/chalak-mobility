@@ -164,8 +164,7 @@
     "vehicleTypes": {
       "bike": "बाईक",
       "scooter": "स्कूटर", 
-      "car": "कार",
-      "suv": "SUV"
+      "car": "कार"
     },
     "plans": {
       "hourly": "तासाचा",
