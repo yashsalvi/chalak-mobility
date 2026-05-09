@@ -12,7 +12,7 @@
     "test:api": "npx nx test api",
     "lint:shop": "npx nx lint shop",
     "lint:api": "npx nx lint api",
-    "build": "npx nx build api",
+    "build": "cd apps/api && npx esbuild src/main.ts --bundle --platform=node --format=cjs --outfile=dist/main.js --external:express --external:mongoose --external:bcrypt --external:jsonwebtoken --external:zod && node -e \"require('fs').copyFileSync('package.json', 'dist/package.json')\" && cd dist && npm install --production",
     "serve": "npx nx serve",
     "test": "npx nx test",
     "lint": "npx nx lint"
