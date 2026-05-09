@@ -15,6 +15,10 @@ import {
   UpdateProfileRequest
 } from './auth.types';
 import jwt from 'jsonwebtoken';
+import { fileURLToPath } from 'node:url';
+
+// Helper function to get __dirname in ES modules
+const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 // In-memory storage (in production, use proper database)
 const usersFile = path.join(__dirname, 'users.db.json');
