@@ -1,0 +1,45 @@
+<div class="language-switcher" [class.open]="isOpen">
+  <button 
+    class="language-button"
+    (click)="toggleDropdown()"
+    [attr.aria-label]="'Language: ' + (currentLocaleInfo?.nativeName || 'English')"
+    aria-haspopup="true"
+    [attr.aria-expanded]="isOpen"
+  >
+    <span class="flag">{{ currentLocaleInfo?.flag || '🇬🇧' }}</span>
+    <span class="name">{{ currentLocaleInfo?.nativeName || 'English' }}</span>
+    <lucide-icon name="chevron-down" size="16" class="dropdown-icon"></lucide-icon>
+  </button>
+  
+  <div class="dropdown-backdrop" *ngIf="isOpen" (click)="onBackdropClick()"></div>
+  
+  <div class="dropdown-menu" *ngIf="isOpen" [@slideDown]>
+    <div class="dropdown-header">
+      <span class="title">{{ 'common.selectLanguage' | translate }}</span>
+      <lucide-icon name="globe" size="16" class="globe-icon"></lucide-icon>
+    </div>
+    
+    <div class="language-list">
+      <button
+        *ngFor="let locale of supportedLocales"
+        class="language-option"
+        (click)="selectLocale(locale.code)"
+        [class.active]="locale.code === currentLocale"
+        [attr.aria-label]="locale.nativeName"
+        [attr.aria-current]="locale.code === currentLocale ? 'true' : 'false'"
+      >
+        <span class="flag">{{ locale.flag }}</span>
+        <div class="language-info">
+          <span class="native-name">{{ locale.nativeName }}</span>
+          <span class="english-name">{{ locale.name }}</span>
+        </div>
+        <lucide-icon 
+          *ngIf="locale.code === currentLocale" 
+          name="check" 
+          size="16" 
+          class="check-icon">
+        </lucide-icon>
+      </button>
+    </div>
+  </div>
+</div>

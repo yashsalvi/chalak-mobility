@@ -1,0 +1,126 @@
+.booking-kyc {
+  display: flex;
+  flex-direction: column;
+  gap: 22px;
+  max-width: 820px;
+  margin: 0 auto;
+}
+
+.booking-kyc h3 {
+  margin: 0;
+  color: #ffffff;
+  font-size: clamp(20px, 2.4vw, 24px);
+  font-weight: 750;
+}
+
+.kyc-form {
+  display: grid;
+  gap: 18px;
+  max-width: 620px;
+  padding: 22px;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 12px;
+}
+
+.form-group,
+.checkbox-group {
+  display: grid;
+  gap: 12px;
+}
+
+.form-group label,
+.checkbox-label {
+  color: #eef8fb;
+  font-size: 0.84rem;
+  font-weight: 700;
+}
+
+.form-group input {
+  min-height: 44px;
+  padding: 0 12px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  border-radius: 8px;
+  background: rgba(6, 20, 28, 0.82);
+  color: #ffffff;
+  font-size: 0.94rem;
+}
+
+.form-group input:focus {
+  outline: none;
+  border-color: var(--primary-green);
+  box-shadow: 0 0 0 3px rgba(0, 230, 118, 0.16);
+}
+
+.checkbox-label {
+  display: flex;
+  gap: 10px;
+  align-items: flex-start;
+  padding: 14px;
+  background: rgba(255, 255, 255, 0.07);
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 8px;
+  line-height: 1.45;
+}
+
+.checkbox-label input {
+  margin-top: 3px;
+  accent-color: var(--primary-green);
+}
+
+.help-text {
+  color: #b7c9d1;
+  font-size: 0.8rem;
+}
+
+.error-message {
+  color: #ff9a9a;
+  font-size: 0.8rem;
+  font-weight: 650;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 44px;
+  padding: 0 18px;
+  border: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 750;
+  cursor: pointer;
+}
+
+.btn--primary {
+  background: linear-gradient(135deg, #00e676, #00c853);
+  color: #06130d;
+}
+
+.btn--primary:hover:not(:disabled) {
+  background: var(--accent-blue);
+  color: #ffffff;
+  box-shadow: 0 10px 25px rgba(0, 230, 118, 0.28);
+  transform: translateY(-2px);
+}
+
+.btn--primary:disabled {
+  background: rgba(255, 255, 255, 0.14);
+  color: rgba(255, 255, 255, 0.52);
+  cursor: not-allowed;
+}
+
+.btn--full {
+  width: fit-content;
+  min-width: 210px;
+  max-width: 250px;
+  align-self: flex-end;
+}
+
+@media (max-width: 480px) {
+  .btn--full {
+    width: 100%;
+    min-width: 0;
+    max-width: none;
+  }
+}

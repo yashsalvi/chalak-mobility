@@ -1,0 +1,46 @@
+<div class="search-container" [class.open]="isOpen">
+  <button class="search-trigger" [class.active]="isOpen" (click)="toggleSearch()" title="{{ 'common.searchVehicles' | translate }}">
+    <lucide-icon name="search" size="18"></lucide-icon>
+  </button>
+
+  <div class="search-dropdown" [class.open]="isOpen">
+    <div class="search-input-wrapper">
+      <lucide-icon name="search" size="18"></lucide-icon>
+      <input
+        type="text"
+        placeholder="{{ 'common.searchPlaceholder' | translate }}"
+        [value]="searchForm.get('query')?.value || ''"
+        (input)="onQueryChange($event)"
+        class="search-input"
+      />
+    </div>
+
+    <div class="select-wrapper">
+      <select
+        [value]="searchForm.get('type')?.value || ''"
+        (change)="onTypeChange($event)"
+        class="search-filter"
+      >
+        <option value="">{{ 'common.allTypes' | translate }}</option>
+        <option value="Scooter">{{ 'vehicles.electricScooter' | translate }}</option>
+        <option value="Electric Bike">{{ 'vehicles.electricBike' | translate }}</option>
+        <option value="Electric Tempo">{{ 'vehicles.electricTempo' | translate }}</option>
+        <option value="Delivery EV">{{ 'vehicles.deliveryEV' | translate }}</option>
+      </select>
+      <lucide-icon name="chevron-down" size="16" class="dropdown-icon"></lucide-icon>
+    </div>
+
+    <div class="search-results">
+      <div *ngIf="isLoading" class="loading-state">
+        <p>{{ 'common.loadingVehicles' | translate }}</p>
+      </div>
+      <div *ngIf="!isLoading && filteredVehicles.length === 0" class="no-results">
+        <p>{{ 'common.noVehiclesFound' | translate }}</p>
+      </div>
+      <div *ngFor="let vehicle of filteredVehicles" class="result-item" (click)="selectVehicle(vehicle)">
+        <div class="result-name">{{ vehicle.name }}</div>
+        <div class="result-meta">{{ vehicle.type }} • ₹{{ vehicle.price }}/day</div>
+      </div>
+    </div>
+  </div>
+</div>

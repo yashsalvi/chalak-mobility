@@ -1,4 +1,8 @@
 {
+  "/api": {
+    "target": "http://localhost:3333",
+    "secure": false
+  },
   "/@org/api": {
     "target": "http://localhost:3333",
     "secure": false

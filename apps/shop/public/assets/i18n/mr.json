@@ -1,0 +1,299 @@
+{
+  "common": {
+    "loading": "लोड होत आहे...",
+    "error": "त्रुटी",
+    "success": "यशस्वी",
+    "retry": "पुन्हा प्रयत्न करा",
+    "cancel": "रद्द करा",
+    "save": "जतन करा",
+    "delete": "हटवा",
+    "edit": "संपादित करा",
+    "close": "बंद करा",
+    "back": "मागे",
+    "next": "पुढे",
+    "previous": "आधी",
+    "submit": "सादर करा",
+    "yes": "होय",
+    "no": "नाही",
+    "ok": "ठीक आहे",
+    "search": "शोधा",
+    "filter": "फिल्टर करा",
+    "sort": "क्रमवार करा",
+    "language": "भाषा"
+  },
+  "navigation": {
+    "home": "होम",
+    "vehicles": "वाहने",
+    "plans": "योजना",
+    "business": "व्यवसाय",
+    "booking": "बुकिंग",
+    "profile": "प्रोफाइल",
+    "login": "लॉगिन",
+    "register": "नोंदणी करा",
+    "logout": "लॉगआउट",
+    "whatsapp": "आमच्याशी व्हाट्सअॅप करा",
+    "bookNow": "आता बुक करा"
+  },
+  "home": {
+    "hero": {
+      "title": "तुमचे प्रवास, तुमचा मार्ग",
+      "subtitle": "चलक मोबिलिटीसह तुमच्या अटींवर वाहने भाड्याने घ्या",
+      "cta": "तुमचे प्रवास सुरू करा",
+      "searchPlaceholder": "तुम्ही कुठे जायला आवडता?"
+    },
+    "fleet": {
+      "title": "आमची EV फ्लीट",
+      "subtitle": "तुमच्या कमाईच्या गरजांसाठी योग्य वाहन निवडा",
+      "mostPopular": "सर्वाधिक लोकप्रिय",
+      "forBusiness": "व्यवसायासाठी",
+      "highDemand": "जास्त मागणी"
+    },
+    "features": {
+      "vehicles": {
+        "title": "विस्तृत वाहन निवड",
+        "description": "बाईक, स्कूटर, कार आणि अधिकांपैकी निवडा"
+      },
+      "pricing": {
+        "title": "पारदर्शक किंमत निर्धारण",
+        "description": "कोणतेही लपवलेले शुल्क नाही, स्पष्ट किंमत निर्धारण संरचना"
+      },
+      "business": {
+        "title": "व्यवसाय उपाय",
+        "description": "कॉर्पोरेट योजना आणि फ्लीट व्यवस्थापन"
+      }
+    },
+    "whyChoose": {
+      "title": "चलक मोबिलिटी का निवडायचे?",
+      "items": {
+        "flexible": "लचबच्या भाड्याच्या योजना",
+        "affordable": "स्वस्त दर",
+        "convenient": "सोयगस्कर पिकअप/ड्रॉपऑफ",
+        "insured": "पूर्णपणे विमा असलेली वाहने"
+      }
+    },
+    "howItWorks": {
+      "title": "हे कसे काम करते",
+      "steps": {
+        "choose": "तुमचे वाहन निवडा",
+        "book": "तुमची सफर बुक करा",
+        "enjoy": "तुमच्या प्रवासाचा आनंद घ्या"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "पुन्हा स्वागत",
+      "subtitle": "तुमच्या खात्यात साइन इन करा",
+      "email": "ईमेल पत्ता",
+      "phone": "फोन नंबर",
+      "password": "पासवर्ड",
+      "rememberMe": "मला लक्षात ठेव",
+      "forgotPassword": "पासवर्ड विसरलास?",
+      "loginButton": "साइन इन करा",
+      "noAccount": "तुमच्याजवळी खाते नाही का?",
+      "signupLink": "साइन अप करा",
+      "otpLogin": "OTP सह लॉग इन करा",
+      "loginError": "अवैध क्रेडेन्शियल्स",
+      "emailRequired": "ईमेल आवश्यक आहे",
+      "passwordRequired": "पासवर्ड आवश्यक आहे"
+    },
+    "register": {
+      "title": "खाते तयार करा",
+      "subtitle": "तुमचे प्रवास सुरू करण्यासाठी चलक मोबिलिटीमध्ये सामील व्हा",
+      "firstName": "पहिले नाव",
+      "lastName": "आडनाव",
+      "email": "ईमेल पत्ता",
+      "phone": "फोन नंबर",
+      "password": "पासवर्ड",
+      "confirmPassword": "पासवर्डची पुष्टी करा",
+      "dateOfBirth": "जन्म तारीख",
+      "agreeTerms": "मी सेवा अटींशी सहमत आहे",
+      "agreePrivacy": "मी गोपनीयता धोरणेशी सहमत आहे",
+      "registerButton": "खाते तयार करा",
+      "hasAccount": "तुमच्याजवळी आधीपासून खाते आहे का?",
+      "loginLink": "साइन इन करा",
+      "registrationSuccess": "खाते यशस्वीरित्या तयार झाले",
+      "validation": {
+        "firstNameRequired": "पहिले नाव आवश्यक आहे",
+        "lastNameRequired": "आडनाव आवश्यक आहे",
+        "emailRequired": "ईमेल आवश्यक आहे",
+        "emailInvalid": "कृपया वैध ईमेल प्रविष्ट करा",
+        "phoneRequired": "फोन नंबर आवश्यक आहे",
+        "phoneInvalid": "कृपया वैध फोन नंबर प्रविष्ट करा",
+        "passwordRequired": "पासवर्ड आवश्यक आहे",
+        "passwordMinLength": "पासवर्ड किमान ८ अक्षरांचा असावा आहे",
+        "dateRequired": "जन्म तारीख आवश्यक आहे",
+        "termsRequired": "तुम्हाली अटींशी मान्य करणे आवश्यक आहे",
+        "privacyRequired": "तुम्हाली गोपनीयता धोरणे मान्य करणे आवश्यक आहे"
+      }
+    },
+    "otp": {
+      "title": "OTP सत्यापित करा",
+      "subtitle": "तुमच्या ईमेल/फोनवर पाठवलेला ६-अंकी कोड प्रविष्ट करा",
+      "otpPlaceholder": "000000",
+      "verifyButton": "OTP सत्यापित करा",
+      "resendButton": "कोड पुन्हा पाठवा",
+      "otpSent": "OTP यशस्वीरित्या पाठवला",
+      "otpVerified": "OTP यशस्वीरित्या सत्यापित झाला",
+      "otpError": "अवैध OTP",
+      "otpExpired": "OTP कालबाह्य झाला आहे",
+      "attemptsRemaining": "शिल्लक प्रयत्न: {{count}}"
+    },
+    "profile": {
+      "title": "माझे प्रोफाइल",
+      "personalInfo": "वैयक्तिक माहिती",
+      "preferences": "प्राधान्यता",
+      "verification": "खाते सत्यापन",
+      "stats": "तुमचे आकडे",
+      "verified": "सत्यापित",
+      "partialVerified": "आंशिक सत्यापित",
+      "notVerified": "सत्यापित नाही",
+      "editProfile": "प्रोफाइल संपादित करा",
+      "saveChanges": "बदल जतन करा",
+      "cancel": "रद्द करा",
+      "logout": "लॉग आउट"
+    }
+  },
+  "booking": {
+    "title": "तुमची सफर बुक करा",
+    "selectVehicle": "वाहन निवडा",
+    "selectPlan": "योजना निवडा",
+    "personalDetails": "वैयक्तिक तपशील",
+    "payment": "भरणे",
+    "confirmation": "बुकिंग पुष्टी",
+    "vehicleTypes": {
+      "bike": "बाईक",
+      "scooter": "स्कूटर", 
+      "car": "कार",
+      "suv": "SUV"
+    },
+    "plans": {
+      "hourly": "तासाचा",
+      "daily": "दैनिक",
+      "weekly": "आठवड्याचा",
+      "monthly": "महिन्याचा"
+    },
+    "status": {
+      "pending": "प्रलंबित",
+      "confirmed": "पुष्टी",
+      "active": "सक्रिय",
+      "completed": "पूर्ण",
+      "cancelled": "रद्द"
+    },
+    "summary": {
+      "bookingReference": "बुकिंग संदर्भ",
+      "vehicle": "वाहन",
+      "pickupDate": "पिकअप तारीख",
+      "dropoffDate": "ड्रॉपऑफ तारीख",
+      "duration": "कालावधी",
+      "totalCost": "एकूण खर्च",
+      "deposit": "सुरक्षा जामीन"
+    }
+  },
+  "vehicles": {
+    "title": "उपलब्ध वाहने",
+    "filterByType": "प्रकारनुसार फ़िल्टर करा",
+    "filterByPrice": "किंमतीनुसार फ़िल्टर करा",
+    "sortBy": "क्रमवार करा",
+    "priceLowToHigh": "किंमत: कमी ते जास्त",
+    "priceHighToLow": "किंमत: जास्ती ते कमी",
+    "newestFirst": "नवीनतम आधी",
+    "rating": "रेटिंग",
+    "availability": "उपलब्धता",
+    "available": "उपलब्ध",
+    "unavailable": "अनुपलब्ध",
+    "perHour": "प्रति तास",
+    "perDay": "प्रति दिवस",
+    "bookNow": "आता बुक करा",
+    "viewDetails": "तपशील पाहा",
+    "electricScooter": "इलेक्ट्रिक स्कूटर",
+    "electricTempo": "इलेक्ट्रिक टेम्पो",
+    "deliveryEV": "डिलिव्हरी EV",
+    "save": "बाजारपेक्षेत ₹{{amount}} वाचा"
+  },
+  "pricing": {
+    "title": "किंमत निर्धारण योजना",
+    "subtitle": "तुमच्या कमाईच्या शैलीनुसार योजना निवडा",
+    "bestValue": "सर्वोत्तम मूल्य",
+    "choosePlan": "योजना निवडा",
+    "hourly": {
+      "title": "तासाच्या योजना",
+      "description": "लहान प्रवासांसाठी उत्तम",
+      "price": "/तास"
+    },
+    "daily": {
+      "title": "दैनिक योजना", 
+      "description": "लहान प्रवासांसाठी सर्वोत्तम",
+      "price": "/दिवस",
+      "features": {
+        "commitment": "दीर्घ करार नाही",
+        "maintenance": "देखभाल समाविष्ट",
+        "flexible": "लवचिक वापर"
+      }
+    },
+    "weekly": {
+      "title": "साप्ताहिक योजना",
+      "description": "साप्ताहिक वापरावर जास्त बचत करा",
+      "price": "/आठवडा",
+      "features": {
+        "cost": "कमी दैनिक खर्च",
+        "support": "प्राधान्य समर्थन",
+        "ideal": "गिग कामासाठी आदर्श"
+      }
+    },
+    "monthly": {
+      "title": "मासिक योजना",
+      "description": "कमाल बचत योजना",
+      "price": "/महिना",
+      "features": {
+        "value": "सर्वोत्तम मूल्य",
+        "usage": "दीर्घकालीन वापर",
+        "business": "व्यवसायासाठी चांगले"
+      }
+    },
+    "features": {
+      "insurance": "विमा समाविष्ट",
+      "maintenance": "मोफत देखभाल",
+      "support": "२४/७ समर्थन",
+      "flexible": "लवचित रद्दीकरण"
+    }
+  },
+  "business": {
+    "title": "व्यवसाय उपाय",
+    "subtitle": "स्मार्ट मोबिलिटीसह तुमचा व्यवसाय सशक्त करणे",
+    "corporate": "कॉर्पोरेट योजना",
+    "fleet": "फ्लीट व्यवस्थापन",
+    "custom": "सानुकूल उपाय",
+    "contactSales": "विक्रीशी संपर्क करा",
+    "getQuote": "अंदाज प्राप्त करा",
+    "benefits": {
+      "costEffective": "खर्च प्रभावी",
+      "scalable": "विस्तारण्यजोग्य",
+      "managed": "पूर्णपणे व्यवस्थापित",
+      "support": "समर्पित समर्थन"
+    }
+  },
+  "errors": {
+    "network": "नेटवर्क त्रुटी। कृपया तुमचे जोडणी तपासा।",
+    "server": "सर्व्हर त्रुटी। कृपया नंतर पुन्हा प्रयत्न करा।",
+    "notFound": "पृष्ठ सापडला नाही।",
+    "unauthorized": "तुम्ही या पृष्ठापर्यंत पोहोचण्यासाठी अधिकृत नाही।",
+    "validation": "कृपया तुमचे इनपुट तपासा आणि पुन्हा प्रयत्न करा।",
+    "unknown": "एक अज्ञात त्रुटी आली आहे।"
+  },
+  "footer": {
+    "tagline": "भारतासाठी स्मार्ट EV भाडे",
+    "about": "आमच्याबद्दल",
+    "contact": "संपर्क करा",
+    "privacy": "गोपनीयता धोरण",
+    "terms": "सेवा अटी",
+    "help": "मदती केंद्र",
+    "faq": "वारंवार विचारले जाणारे प्रश्न",
+    "copyright": "© २०२६ चलक मोबिलिटी. सर्व हक्क सुरक्षित."
+  },
+  "profile": {
+    "edit": "प्रोफाइल संपादित करा",
+    "settings": "सेटिंग्ज",
+    "recentBookings": "अलीकडील बुकिंग"
+  }
+}

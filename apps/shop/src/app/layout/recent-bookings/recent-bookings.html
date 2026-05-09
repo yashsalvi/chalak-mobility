@@ -1,0 +1,51 @@
+<section class="recent-bookings-section" [class.compact]="compact">
+  <div class="recent-bookings-container">
+    <div class="bookings-header">
+      <div>
+        <h3>Recent Bookings</h3>
+        <p class="bookings-subtitle">Quick access to your latest ride details.</p>
+      </div>
+    </div>
+
+    <div *ngIf="!hasBookings" class="no-bookings">
+      <div class="empty-icon">
+        <lucide-icon name="calendar" size="32"></lucide-icon>
+      </div>
+      <p>No bookings yet</p>
+      <button class="btn-primary" (click)="newBooking()">Book a Vehicle</button>
+    </div>
+
+    <div *ngIf="hasBookings" class="bookings-list">
+      <div *ngFor="let booking of bookings" class="booking-card">
+        <div class="booking-header">
+          <div class="vehicle-info">
+            <div class="vehicle-icon">
+              <lucide-icon name="car" size="20"></lucide-icon>
+            </div>
+            <div>
+              <div class="vehicle-name">{{ booking.vehicleName }}</div>
+              <div class="booking-id">Ref: {{ booking.id }}</div>
+            </div>
+          </div>
+          <div [class]="'status badge ' + getStatusClass(booking.status)">
+            <lucide-icon [name]="getStatusIcon(booking.status)" size="14"></lucide-icon>
+            {{ booking.status | uppercase }}
+          </div>
+        </div>
+
+        <div class="booking-dates">
+          <div class="date-item">
+            <lucide-icon name="calendar-check" size="14"></lucide-icon>
+            <span>{{ booking.startDate }} to {{ booking.endDate }}</span>
+          </div>
+          <div class="cost">₹{{ booking.totalCost }}</div>
+        </div>
+
+        <button class="btn-view" (click)="viewBooking(booking)">
+          View Details
+          <lucide-icon name="arrow-right" size="14"></lucide-icon>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>

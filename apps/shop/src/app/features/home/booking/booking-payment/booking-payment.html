@@ -1,0 +1,51 @@
+<div class="booking-payment">
+	<h3>Step 5: Payment</h3>
+
+	<form [formGroup]="form" class="payment-form">
+		<div class="methods">
+			<label *ngFor="let m of paymentMethods" class="method-card" [class.selected]="form.get('method')?.value === m.value" (click)="selectPaymentMethod(m.value)">
+				<input type="radio" [value]="m.value" formControlName="method" hidden />
+				<div class="method-icon">{{ m.icon }}</div>
+				<div class="method-label">{{ m.label }}</div>
+				<div class="selected-indicator" *ngIf="form.get('method')?.value === m.value"><lucide-icon name="check" size="16"></lucide-icon></div>
+			</label>
+		</div>
+
+		<div class="form-group">
+			<label class="checkbox-label">
+				<input type="checkbox" formControlName="agreeToAutomaticPayment" />
+				<span class="label-text">I agree to pay the booking amount and refundable deposit as per Chalak policy</span>
+			</label>
+		</div>
+	</form>
+
+	<div class="cost-summary">
+		<h4>Cost Breakdown</h4>
+		<div class="cost-item">
+			<span>Rental</span>
+			<strong>₹{{ costBreakdown?.rentalCost ?? 0 }}</strong>
+		</div>
+		<div class="cost-item">
+			<span>Insurance</span>
+			<strong>₹{{ costBreakdown?.insuranceCost ?? 0 }}</strong>
+		</div>
+		<div class="cost-item">
+			<span>Add-ons</span>
+			<strong>₹{{ costBreakdown?.addOnsCost ?? 0 }}</strong>
+		</div>
+		<div class="cost-item">
+			<span>Tax</span>
+			<strong>₹{{ costBreakdown?.taxAmount ?? 0 }}</strong>
+		</div>
+		<div class="cost-item">
+			<span>Discount</span>
+			<strong>- ₹{{ costBreakdown?.discountAmount ?? 0 }}</strong>
+		</div>
+		<div class="cost-item total">
+			<span>Total</span>
+			<strong>₹{{ totalCost }}</strong>
+		</div>
+	</div>
+
+	<button class="btn btn--primary btn--full" (click)="onNext()" [disabled]="form.invalid">Pay Now</button>
+</div>

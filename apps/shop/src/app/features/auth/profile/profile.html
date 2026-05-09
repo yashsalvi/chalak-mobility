@@ -1,0 +1,227 @@
+<div class="profile-container">
+  <!-- Loading State -->
+  <div *ngIf="isLoading" class="loading-state">
+    <div class="loading-spinner"></div>
+    <p>Loading profile...</p>
+  </div>
+
+  <!-- Error State -->
+  <div *ngIf="errorMessage" class="error-state">
+    <lucide-icon name="alert-triangle" size="24" class="error-icon"></lucide-icon>
+    <h3>{{ 'common.errorLoadingProfile' | translate }}</h3>
+    <p>{{ errorMessage }}</p>
+    <button class="btn btn--primary" (click)="loadProfile()" aria-label="{{ 'common.retryLoadingProfile' | translate }}">
+      {{ 'common.retryLoadingProfile' | translate }}
+    </button>
+  </div>
+
+  <!-- Profile Content -->
+  <div *ngIf="profile" class="profile-content">
+    <!-- Profile Header -->
+    <div class="profile-header">
+      <div class="profile-avatar">
+        <div class="avatar-placeholder">
+          <lucide-icon name="user" size="48"></lucide-icon>
+        </div>
+        <div class="user-info">
+          <h2>{{ fullName }}</h2>
+          <div class="user-email">{{ profile?.user?.email }}</div>
+          <div class="verification-badges">
+            <span class="badge" [ngClass]="verificationStatus.class">
+              {{ verificationStatus.label }}
+            </span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Edit Button -->
+      <div *ngIf="!isEditing" class="btn btn--secondary edit-btn" (click)="onEdit()" aria-label="{{ 'common.editProfile' | translate }}">
+        <lucide-icon name="edit" size="16"></lucide-icon>
+        {{ 'common.editProfile' | translate }}
+      </div>
+
+    </div>
+
+    <!-- Edit Form -->
+    <div *ngIf="isEditing" class="edit-form">
+      <div class="form-grid">
+        <!-- First Name -->
+        <div class="form-group">
+          <label for="firstName">First Name</label>
+          <input
+            id="firstName"
+            type="text"
+            [value]="profile?.user?.firstName || ''"
+            (input)="onFieldChange('firstName', $event)"
+            class="form-input"
+            aria-label="First name"
+          />
+        </div>
+
+        <!-- Last Name -->
+        <div class="form-group">
+          <label for="lastName">Last Name</label>
+          <input
+            id="lastName"
+            type="text"
+            [value]="profile?.user?.lastName || ''"
+            (input)="onFieldChange('lastName', $event)"
+            class="form-input"
+            aria-label="Last name"
+          />
+        </div>
+
+        <!-- Date of Birth -->
+        <div class="form-group">
+          <label for="dateOfBirth">Date of Birth</label>
+          <input
+            id="dateOfBirth"
+            type="date"
+            [value]="profile?.user?.dateOfBirth || ''"
+            (input)="onFieldChange('dateOfBirth', $event)"
+            class="form-input"
+            aria-label="Date of birth"
+          />
+        </div>
+      </div>
+
+      <!-- Preferences Section -->
+      <div class="preferences-section">
+        <h3>Preferences</h3>
+        <div class="preference-grid">
+          <!-- Email Notifications -->
+          <div class="preference-item">
+            <label class="switch-label">
+              <input
+                type="checkbox"
+                [checked]="profile?.preferences?.emailNotifications"
+                (change)="onPreferenceChange('emailNotifications', $event)"
+                class="switch-input"
+              />
+              <span>Email Notifications</span>
+            </label>
+          </div>
+
+          <!-- SMS Notifications -->
+          <div class="preference-item">
+            <label class="switch-label">
+              <input
+                type="checkbox"
+                [checked]="profile?.preferences?.smsNotifications"
+                (change)="onPreferenceChange('smsNotifications', $event)"
+                class="switch-input"
+              />
+              <span>SMS Notifications</span>
+            </label>
+          </div>
+
+          <!-- Language -->
+          <div class="preference-item">
+            <label for="language">Language</label>
+            <select
+              id="language"
+              [value]="profile?.preferences?.preferredLanguage || 'en'"
+              (change)="onPreferenceChange('preferredLanguage', $event)"
+              class="form-select"
+              aria-label="Preferred language"
+            >
+              <option value="en">English</option>
+              <option value="hi">हिंदी</option>
+              <option value="gu">ગુજરાતી</option>
+            </select>
+          </div>
+
+          <!-- Currency -->
+          <div class="preference-item">
+            <label for="currency">Currency</label>
+            <select
+              id="currency"
+              [value]="profile?.preferences?.currency || 'INR'"
+              (change)="onPreferenceChange('currency', $event)"
+              class="form-select"
+              aria-label="Preferred currency"
+            >
+              <option value="INR">₹ INR</option>
+              <option value="USD">$ USD</option>
+              <option value="EUR">€ EUR</option>
+            </select>
+          </div>
+        </div>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="form-actions">
+        <button
+          class="btn btn--primary"
+          (click)="onSave()"
+          aria-label="Save profile changes"
+        >
+          Save Changes
+        </button>
+        <button
+          class="btn btn--secondary"
+          (click)="onCancel()"
+          aria-label="Cancel editing"
+        >
+          Cancel
+        </button>
+      </div>
+    </div>
+
+    <!-- User Stats -->
+    <div class="stats-section">
+      <h3>Account Statistics</h3>
+      <div class="stats-grid">
+        <div class="stat-card">
+          <div class="stat-icon">
+            <lucide-icon name="calendar" size="24"></lucide-icon>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number">{{ profile?.stats?.totalBookings || 0 }}</div>
+            <div class="stat-label">Total Bookings</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <lucide-icon name="check-circle" size="24"></lucide-icon>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number">{{ profile?.stats?.completedBookings || 0 }}</div>
+            <div class="stat-label">Completed</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <lucide-icon name="clock" size="24"></lucide-icon>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number">{{ profile?.stats?.activeBookings || 0 }}</div>
+            <div class="stat-label">Active</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <lucide-icon name="x-circle" size="24"></lucide-icon>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number">{{ profile?.stats?.cancelledBookings || 0 }}</div>
+            <div class="stat-label">Cancelled</div>
+          </div>
+        </div>
+
+        <div class="stat-card">
+          <div class="stat-icon">
+            <lucide-icon name="trending-up" size="24"></lucide-icon>
+          </div>
+          <div class="stat-info">
+            <div class="stat-number">₹{{ profile?.stats?.totalSpent || 0 }}</div>
+            <div class="stat-label">Total Spent</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

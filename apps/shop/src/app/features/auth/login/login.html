@@ -1,0 +1,134 @@
+<div class="auth-container">
+  <div class="auth-card">
+    <div class="auth-header">
+      <div class="logo">
+        <lucide-icon name="car" size="32"></lucide-icon>
+        <h1>{{ 'brand.name' | translate }}</h1>
+      </div>
+      <h2>{{ 'auth.login.title' | translate }}</h2>
+      <p>{{ 'auth.login.subtitle' | translate }}</p>
+    </div>
+
+    <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="auth-form">
+      <!-- Loading State -->
+      <div *ngIf="isLoading" class="loading-overlay">
+        <div class="loading-spinner"></div>
+        <p>{{ 'common.loading' | translate }}</p>
+      </div>
+
+      <!-- Error Message -->
+      <div *ngIf="errorMessage" class="error-message">
+        <lucide-icon name="alert-triangle" size="16"></lucide-icon>
+        {{ errorMessage }}
+      </div>
+
+      <!-- Identifier Field -->
+      <div class="form-group">
+        <label for="identifier">{{ 'auth.login.email' | translate }}</label>
+        <input
+          id="identifier"
+          type="text"
+          formControlName="identifier"
+          placeholder="{{ 'auth.login.email' | translate }}"
+          [class.has-error]="isFieldInvalid('identifier')"
+          aria-label="{{ 'auth.login.email' | translate }}"
+          autocomplete="username"
+        />
+        <span class="error-message" *ngIf="getErrorMessage('identifier')">
+          {{ getErrorMessage('identifier') }}
+        </span>
+      </div>
+
+      <!-- Password Field -->
+      <div class="form-group">
+        <div class="password-input-container">
+          <label for="password">{{ 'auth.login.password' | translate }}</label>
+          <input
+            id="password"
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            placeholder="{{ 'auth.login.password' | translate }}"
+            [class.has-error]="isFieldInvalid('password')"
+            aria-label="{{ 'auth.login.password' | translate }}"
+            autocomplete="current-password"
+          />
+          <button
+            type="button"
+            class="password-toggle"
+            (click)="togglePassword()"
+            aria-label="{{ 'common.togglePasswordVisibility' | translate }}"
+          >
+            <lucide-icon [name]="showPassword ? 'eye-off' : 'eye'" size="16"></lucide-icon>
+          </button>
+        </div>
+        <span class="error-message" *ngIf="getErrorMessage('password')">
+          {{ getErrorMessage('password') }}
+        </span>
+      </div>
+
+      <!-- Remember Me -->
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input
+            type="checkbox"
+            formControlName="rememberMe"
+            id="rememberMe"
+          />
+          <span>{{ 'auth.login.rememberMe' | translate }}</span>
+        </label>
+      </div>
+
+      <!-- Action Buttons -->
+      <div class="form-actions">
+        <button
+          type="submit"
+          class="btn btn--primary btn--full"
+          [disabled]="loginForm.invalid || isSubmitting"
+          aria-label="{{ 'auth.login.loginButton' | translate }}"
+        >
+          <span *ngIf="!isSubmitting">{{ 'auth.login.loginButton' | translate }}</span>
+          <span *ngIf="isSubmitting" class="loading-text">
+            <div class="btn-spinner"></div>
+            {{ 'common.loading' | translate }}
+          </span>
+        </button>
+
+        <div class="secondary-actions">
+          <button
+            type="button"
+            class="btn btn--secondary"
+            (click)="onOtpLogin()"
+            aria-label="{{ 'auth.login.otpLogin' | translate }}"
+          >
+            <lucide-icon name="smartphone" size="14"></lucide-icon>
+            {{ 'auth.login.otpLogin' | translate }}
+          </button>
+        </div>
+
+        <div class="forgot-password">
+          <button
+            type="button"
+            class="btn-link"
+            (click)="onForgotPassword()"
+            aria-label="{{ 'auth.login.forgotPassword' | translate }}"
+          >
+            {{ 'auth.login.forgotPassword' | translate }}
+          </button>
+        </div>
+      </div>
+
+      <!-- Register Link -->
+      <div class="auth-footer">
+        <p>{{ 'auth.login.noAccount' | translate }}</p>
+        <button
+          type="button"
+          class="btn-link"
+          (click)="onRegister()"
+          aria-label="{{ 'auth.login.signupLink' | translate }}"
+        >
+          {{ 'auth.login.signupLink' | translate }}
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

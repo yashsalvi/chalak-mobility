@@ -1,0 +1,142 @@
+<div class="cancellation-container">
+  <div class="cancellation-header">
+    <h2>Cancel Booking</h2>
+    <p *ngIf="bookingDetails">Booking #{{ bookingId }}</p>
+    <p class="subtitle">We're sorry to see you go. Please let us know the reason for cancellation.</p>
+  </div>
+
+  <div class="cancellation-content" *ngIf="!isLoading; else loadingBlock">
+    <!-- Booking Details -->
+    <div class="booking-summary" *ngIf="bookingDetails">
+      <div class="summary-header">
+        <h3>Booking Details</h3>
+        <div class="summary-grid">
+          <div class="summary-item">
+            <label>Booking Reference:</label>
+            <span>{{ bookingDetails.bookingReference }}</span>
+          </div>
+          <div class="summary-item">
+            <label>Vehicle:</label>
+            <span>{{ bookingDetails.vehicleName }}</span>
+          </div>
+          <div class="summary-item">
+            <label>Status:</label>
+            <span class="status-badge status-{{ bookingStatus }}">{{ bookingStatus }}</span>
+          </div>
+          <div class="summary-item">
+            <label>Total Cost:</label>
+            <span>{{ formattedTotalCost }}</span>
+          </div>
+          <div class="summary-item">
+            <label>Deposit:</label>
+            <span>{{ formattedDeposit }}</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Cancellation Form -->
+      <form [formGroup]="cancellationForm" class="cancellation-form">
+        <div class="form-section">
+          <h3>Cancellation Reason</h3>
+          <div class="form-group">
+            <label for="reason">Reason for cancellation *</label>
+            <select id="reason" formControlName="reason" class="form-control">
+              <option value="">Select a reason</option>
+              <option *ngFor="let reason of cancellationReasons" [value]="reason">
+                {{ reason }}
+              </option>
+            </select>
+            <div class="error-message" *ngIf="getReasonErrorMessage()">
+              {{ getReasonErrorMessage() }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section" *ngIf="isCustomReason">
+          <div class="form-group">
+            <label for="customReason">Please specify the reason *</label>
+            <textarea 
+              id="customReason" 
+              formControlName="customReason" 
+              class="form-control textarea"
+              rows="3"
+              placeholder="Please provide details about your cancellation reason..."
+            ></textarea>
+            <div class="error-message" *ngIf="getCustomReasonErrorMessage()">
+              {{ getCustomReasonErrorMessage() }}
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section">
+          <div class="form-group">
+            <label for="comments">Additional comments (optional)</label>
+            <textarea 
+              id="comments" 
+              formControlName="comments" 
+              class="form-control textarea"
+              rows="3"
+              placeholder="Any additional information you'd like to provide..."
+            ></textarea>
+          </div>
+        </div>
+
+        <div class="form-section" *ngIf="canBeRefunded">
+          <div class="form-group checkbox-group">
+            <label class="checkbox-label">
+              <input 
+                type="checkbox" 
+                id="refundRequested" 
+                formControlName="refundRequested" 
+                class="checkbox-input"
+              >
+              Request refund
+            </label>
+            <div class="refund-policy">
+              <small>{{ refundPolicy }}</small>
+            </div>
+          </div>
+        </div>
+
+        <div class="error-message" *ngIf="errorMessage">
+          <div class="error-icon">⚠️</div>
+          <div class="error-text">{{ errorMessage }}</div>
+        </div>
+
+        <div class="form-actions">
+          <button 
+            type="button" 
+            class="btn btn-secondary" 
+            (click)="onGoBack()"
+            [disabled]="isSubmitting"
+          >
+            Back to Booking
+          </button>
+          <button 
+            type="submit" 
+            class="btn btn-primary" 
+            (click)="onSubmit()"
+            [disabled]="cancellationForm.invalid || isSubmitting || !canBeCancelled"
+          >
+            <span *ngIf="!isSubmitting">Cancel Booking</span>
+            <span *ngIf="isSubmitting">Cancelling...</span>
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Loading Template -->
+  <ng-template #loadingBlock>
+    <div class="loading-block">
+      <div class="loading-spinner"></div>
+      <p>Loading booking details...</p>
+    </div>
+  </ng-template>
+
+  <!-- Error State -->
+  <div class="error-block" *ngIf="errorMessage && !bookingDetails">
+    <div class="error-icon">⚠️</div>
+    <div class="error-text">{{ errorMessage }}</div>
+  </div>
+</div>

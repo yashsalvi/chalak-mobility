@@ -1,0 +1,91 @@
+.business {
+  background: var(--dark-navy);
+}
+
+/* GRID */
+.business-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+  align-items: center;
+}
+
+/* CONTENT */
+.content h2 {
+  font-size: 2.4rem;
+  margin-bottom: 15px;
+}
+
+.content p {
+  margin-bottom: 25px;
+}
+
+/* BENEFITS */
+.benefits {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  margin-bottom: 25px;
+}
+
+/* ITEM */
+.item {
+  display: flex;
+  gap: 15px;
+  align-items: flex-start;
+
+}
+
+/* ICON */
+.icon {
+  width: 40px;
+  height: 40px;
+  background: rgba(0,230,118,0.1);
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon svg {
+  stroke: var(--primary-green);
+  transition: 0.3s;
+}
+
+.item:hover .icon svg {
+  transform: scale(1.2);
+  stroke: var(--accent-blue);
+}
+
+/* TEXT */
+.item h4 {
+  margin-bottom: 4px;
+  margin-top: 0;
+}
+
+.item p {
+  font-size: 0.9rem;
+  color: #b0bec5;
+}
+
+/* IMAGE */
+.image img {
+  width: 100%;
+  border-radius: 16px;
+  transition: 0.4s;
+}
+
+.image:hover img {
+  transform: scale(1.05);
+}
+
+/* RESPONSIVE */
+@media (max-width: 900px) {
+  .business-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .image {
+    order: -1;
+  }
+}

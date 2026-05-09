@@ -1,0 +1,146 @@
+<div class="register-container">
+  <div class="register-card">
+    <div class="register-header">
+      <h2>{{ 'auth.register.title' | translate }}</h2>
+      <p>{{ 'auth.register.subtitle' | translate }}</p>
+    </div>
+
+    <form [formGroup]="registerForm" (ngSubmit)="onSubmit()" class="register-form">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">{{ 'auth.register.firstName' | translate }}</label>
+          <input
+            id="firstName"
+            type="text"
+            formControlName="firstName"
+            [class.error]="firstName.invalid && firstName.touched"
+            placeholder="{{ 'auth.register.firstNamePlaceholder' | translate }}"
+          />
+          <span class="error-message" *ngIf="firstName.invalid && firstName.touched">
+            {{ getErrorMessage('firstName') }}
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">{{ 'auth.register.lastName' | translate }}</label>
+          <input
+            id="lastName"
+            type="text"
+            formControlName="lastName"
+            [class.error]="lastName.invalid && lastName.touched"
+            placeholder="{{ 'auth.register.lastNamePlaceholder' | translate }}"
+          />
+          <span class="error-message" *ngIf="lastName.invalid && lastName.touched">
+            {{ getErrorMessage('lastName') }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">{{ 'auth.register.email' | translate }}</label>
+        <input
+          id="email"
+          type="email"
+          formControlName="email"
+          [class.error]="email.invalid && email.touched"
+          placeholder="{{ 'auth.register.emailPlaceholder' | translate }}"
+        />
+        <span class="error-message" *ngIf="email.invalid && email.touched">
+          {{ getErrorMessage('email') }}
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="phone">{{ 'auth.register.phone' | translate }}</label>
+        <input
+          id="phone"
+          type="tel"
+          formControlName="phone"
+          [class.error]="phone.invalid && phone.touched"
+          placeholder="{{ 'auth.register.phonePlaceholder' | translate }}"
+        />
+        <span class="error-message" *ngIf="phone.invalid && phone.touched">
+          {{ getErrorMessage('phone') }}
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="dateOfBirth">{{ 'auth.register.dateOfBirth' | translate }}</label>
+        <input
+          id="dateOfBirth"
+          type="date"
+          formControlName="dateOfBirth"
+          [class.error]="dateOfBirth.invalid && dateOfBirth.touched"
+          placeholder="{{ 'auth.register.dateOfBirthPlaceholder' | translate }}"
+        />
+        <span class="error-message" *ngIf="dateOfBirth.invalid && dateOfBirth.touched">
+          {{ getErrorMessage('dateOfBirth') }}
+        </span>
+      </div>
+
+      <div class="form-group">
+        <label for="password">{{ 'auth.register.password' | translate }}</label>
+        <div class="password-input">
+          <input
+            id="password"
+            [type]="showPassword ? 'text' : 'password'"
+            formControlName="password"
+            [class.error]="password.invalid && password.touched"
+            placeholder="{{ 'auth.register.passwordPlaceholder' | translate }}"
+          />
+          <button
+            type="button"
+            class="password-toggle"
+            (click)="togglePassword()"
+            aria-label="{{ 'common.togglePasswordVisibility' | translate }}"
+          >
+            <i lucideIcon="eye" *ngIf="!showPassword"></i>
+            <i lucideIcon="eye-off" *ngIf="showPassword"></i>
+          </button>
+        </div>
+        <span class="error-message" *ngIf="password.invalid && password.touched">
+          {{ getErrorMessage('password') }}
+        </span>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" formControlName="agreeToTerms" />
+          <span>{{ 'auth.register.agreeTerms' | translate }} <a href="/terms" target="_blank">{{ 'auth.register.termsOfService' | translate }}</a></span>
+        </label>
+        <span class="error-message" *ngIf="agreeToTerms.invalid && agreeToTerms.touched">
+          {{ getErrorMessage('agreeToTerms') }}
+        </span>
+      </div>
+
+      <div class="form-group checkbox-group">
+        <label class="checkbox-label">
+          <input type="checkbox" formControlName="agreeToPrivacy" />
+          <span>{{ 'auth.register.agreePrivacy' | translate }} <a href="/privacy" target="_blank">{{ 'auth.register.privacyPolicy' | translate }}</a></span>
+        </label>
+        <span class="error-message" *ngIf="agreeToPrivacy.invalid && agreeToPrivacy.touched">
+          {{ getErrorMessage('agreeToPrivacy') }}
+        </span>
+      </div>
+
+      <div class="error-message global" *ngIf="errorMessage">
+        {{ errorMessage }}
+      </div>
+
+      <button
+        type="submit"
+        class="register-button"
+        [disabled]="registerForm.invalid || isSubmitting"
+        [class.loading]="isSubmitting"
+      >
+        <span *ngIf="!isSubmitting">{{ 'auth.register.createAccount' | translate }}</span>
+        <span *ngIf="isSubmitting">{{ 'auth.register.creatingAccount' | translate }}</span>
+      </button>
+    </form>
+
+    <div class="register-footer">
+      <p>{{ 'auth.register.haveAccount' | translate }}</p>
+      <button type="button" class="login-link" (click)="onLogin()">{{ 'auth.register.signIn' | translate }}</button>
+    </div>
+  </div>
+</div>

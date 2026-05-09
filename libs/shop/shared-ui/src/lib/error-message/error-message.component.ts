@@ -32,6 +32,7 @@ import { CommonModule } from '@angular/common';
     .error-icon {
       font-size: 48px;
       margin-bottom: 16px;
+      color: #e74c3c;
     }
 
     h3 {

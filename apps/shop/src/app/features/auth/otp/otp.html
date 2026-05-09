@@ -1,0 +1,71 @@
+<div class="otp-container">
+  <div class="otp-card">
+    <div class="otp-header">
+      <button type="button" class="back-button" (click)="onBack()">
+        <i lucideIcon="arrow-left"></i>
+      </button>
+      <h2>Verify OTP</h2>
+      <p>Enter the 6-digit code sent to {{ identifier }}</p>
+    </div>
+
+    <div class="otp-content">
+      <form [formGroup]="otpForm" (ngSubmit)="verifyOtp()" class="otp-form">
+        <div class="otp-input-group">
+          <div class="otp-inputs">
+            <input
+              type="text"
+              maxlength="6"
+              pattern="\d{6}"
+              formControlName="otp"
+              [class.error]="otp.invalid && otp.touched"
+              placeholder="000000"
+              autocomplete="one-time-code"
+            />
+          </div>
+          <span class="error-message" *ngIf="otp.invalid && otp.touched">
+            {{ getErrorMessage('otp') }}
+          </span>
+        </div>
+
+        <div class="success-message" *ngIf="successMessage">
+          {{ successMessage }}
+        </div>
+
+        <div class="error-message global" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+        <div class="otp-info" *ngIf="otpSent">
+          <p>Attempts remaining: {{ attemptsRemaining }}</p>
+          <p *ngIf="expiresIn > 0">Code expires in {{ formatTime(expiresIn) }}</p>
+        </div>
+
+        <button
+          type="submit"
+          class="verify-button"
+          [disabled]="otpForm.invalid || isSubmitting || !otpSent"
+          [class.loading]="isSubmitting"
+        >
+          <span *ngIf="!isSubmitting">Verify OTP</span>
+          <span *ngIf="isSubmitting">Verifying...</span>
+        </button>
+      </form>
+
+      <div class="otp-actions">
+        <button
+          type="button"
+          class="resend-button"
+          (click)="resendOtp()"
+          [disabled]="isResending"
+        >
+          <span *ngIf="!isResending">Resend Code</span>
+          <span *ngIf="isResending">Sending...</span>
+        </button>
+      </div>
+    </div>
+
+    <div class="otp-footer">
+      <p>Didn't receive the code? Check your spam folder or request a new one.</p>
+    </div>
+  </div>
+</div>

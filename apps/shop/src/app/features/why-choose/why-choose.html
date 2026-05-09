@@ -1,0 +1,29 @@
+<section class="why">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>{{ 'home.whyChoose.title' | translate }}</h2>
+      <p>{{ 'home.whyChoose.subtitle' | translate }}</p>
+    </div>
+
+    <div class="grid">
+
+      <div class="card" *ngFor="let f of features">
+
+        <div class="icon">
+
+          <lucide-icon *ngIf="f.icon === 'wallet'" size="28" name="wallet"></lucide-icon>
+          <lucide-icon *ngIf="f.icon === 'zap'" size="28" name="zap"></lucide-icon>
+          <lucide-icon *ngIf="f.icon === 'wrench'" size="28" name="wrench"></lucide-icon>
+          <lucide-icon *ngIf="f.icon === 'phone'" size="28" name="smartphone"></lucide-icon>
+        </div>
+
+        <h3>{{ f.title }}</h3>
+        <p>{{ f.desc }}</p>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

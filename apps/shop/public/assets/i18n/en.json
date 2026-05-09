@@ -1,0 +1,376 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "retry": "Retry",
+    "cancel": "Cancel",
+    "save": "Save",
+    "delete": "Delete",
+    "edit": "Edit",
+    "close": "Close",
+    "back": "Back",
+    "next": "Next",
+    "previous": "Previous",
+    "submit": "Submit",
+    "yes": "Yes",
+    "no": "No",
+    "ok": "OK",
+    "search": "Search",
+    "filter": "Filter",
+    "sort": "Sort",
+    "language": "Language",
+    "togglePasswordVisibility": "Toggle password visibility",
+    "selectLanguage": "Select Language",
+    "searchVehicles": "Search vehicles",
+    "searchPlaceholder": "Search vehicles (name, type)...",
+    "allTypes": "All Types",
+    "loadingVehicles": "Loading vehicles...",
+    "noVehiclesFound": "No vehicles found",
+    "scrollToTop": "Scroll to top",
+    "closePanel": "Close",
+    "errorLoadingProfile": "Error Loading Profile",
+    "retryLoadingProfile": "Retry loading profile",
+    "editProfile": "Edit Profile",
+    "errorLoadingBookings": "Error Loading Bookings",
+    "retryLoadingBookings": "Retry loading bookings",
+    "firstName": "First name",
+    "lastName": "Last name",
+    "emailAddress": "Email address",
+    "phoneNumber": "Phone number",
+    "dateOfBirth": "Date of birth",
+    "driversLicenseNumber": "Driver's license number",
+    "driversLicenseCountry": "Driver's license country",
+    "driversLicenseExpiryDate": "Driver's license expiry date",
+    "customPickupAddress": "Custom pickup address",
+    "dropoffCity": "Dropoff city",
+    "continueToBookingDetails": "Continue to Booking Details",
+    "continueToPlanSelection": "Continue to Plan Selection",
+    "continueToKYCStep": "Continue to KYC",
+    "aadhaarNumber": "Aadhaar Number",
+    "drivingLicenseUploadRef": "Driving License Upload Reference",
+    "addAddonToBooking": "Add {{ addon.name }} to booking",
+    "retryLoadingVehicles": "Retry loading vehicles",
+    "vehicleRentalStartDate": "Vehicle rental start date",
+    "vehicleRentalEndDate": "Vehicle rental end date",
+    "pickupLocationType": "Pickup location type",
+    "dropoffLocationType": "Dropoff location type",
+    "pickupCity": "Pickup city",
+    "customDropoffAddress": "Custom dropoff address",
+    "provideCancellationDetails": "Please provide details about your cancellation reason...",
+    "additionalInformation": "Any additional information you'd like to provide...",
+    "mustBeYearsOld": "Must be at least {{ minAge }} years old",
+    "useUploadedDocumentRef": "Use your uploaded document reference",
+    "aadhaar12DigitsRequired": "12 digits required for verification",
+    "booking": {
+      "addon": {
+        "name": "{{ addon.name }}"
+      }
+    }
+  },
+  "brand": {
+    "name": "Chalak Mobility"
+  },
+  "navigation": {
+    "home": "Home",
+    "vehicles": "Vehicles",
+    "plans": "Plans",
+    "business": "Business",
+    "booking": "Booking",
+    "profile": "Profile",
+    "login": "Login",
+    "register": "Register",
+    "logout": "Logout",
+    "whatsapp": "WhatsApp Us",
+    "bookNow": "Book Now"
+  },
+  "home": {
+    "hero": {
+      "title": "Smart EV Rentals for Your Business",
+      "subtitle": "Affordable electric vehicles to grow your delivery business and daily operations",
+      "cta": "Start Earning Today",
+      "searchPlaceholder": "Find your perfect EV"
+    },
+    "fleet": {
+      "title": "Our EV Fleet",
+      "subtitle": "Choose the right vehicle for your earning needs",
+      "mostPopular": "Most Popular",
+      "forBusiness": "For Business",
+      "highDemand": "High Demand"
+    },
+    "features": {
+      "vehicles": {
+        "title": "Wide EV Selection",
+        "description": "Choose from scooters, tempos and delivery vehicles"
+      },
+      "pricing": {
+        "title": "EV Rental Plans",
+        "subtitle": "Affordable electric vehicle rentals for your business"
+      },
+      "business": {
+        "title": "Business Solutions",
+        "description": "Corporate plans and fleet management"
+      }
+    },
+    "whyChoose": {
+      "title": "Why Choose Chalak",
+      "subtitle": "Built for drivers, optimized for earnings",
+      "items": {
+        "flexible": "Flexible Rental Plans",
+        "affordable": "Affordable Rates",
+        "convenient": "Convenient Pickup/Dropoff",
+        "insured": "Fully Insured Vehicles"
+      }
+    },
+    "howItWorks": {
+      "title": "How It Works",
+      "subtitle": "Start your EV journey in 3 simple steps",
+      "steps": {
+        "choose": "Choose Your Vehicle",
+        "book": "Book Your Ride",
+        "enjoy": "Enjoy Your Journey"
+      }
+    }
+  },
+  "auth": {
+    "login": {
+      "title": "Sign In",
+      "subtitle": "Welcome back to Chalak Mobility",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "password": "Password",
+      "passwordPlaceholder": "Enter your password",
+      "rememberMe": "Remember me",
+      "forgotPassword": "Forgot Password?",
+      "signIn": "Sign In",
+      "noAccount": "Don't have an account?",
+      "signUp": "Sign Up",
+      "otpLogin": "Login with OTP"
+    },
+    "register": {
+      "title": "Create Account",
+      "subtitle": "Join Chalak Mobility to start your journey",
+      "firstName": "First Name",
+      "firstNamePlaceholder": "Enter your first name",
+      "lastName": "Last Name",
+      "lastNamePlaceholder": "Enter your last name",
+      "email": "Email Address",
+      "emailPlaceholder": "Enter your email",
+      "phone": "Phone Number",
+      "phonePlaceholder": "Enter your phone number",
+      "dateOfBirth": "Date of Birth",
+      "dateOfBirthPlaceholder": "YYYY-MM-DD",
+      "password": "Password",
+      "passwordPlaceholder": "Create a password",
+      "confirmPassword": "Confirm Password",
+      "agreeTerms": "I agree to the",
+      "termsOfService": "Terms of Service",
+      "agreePrivacy": "I agree to the",
+      "privacyPolicy": "Privacy Policy",
+      "createAccount": "Create Account",
+      "creatingAccount": "Creating Account...",
+      "haveAccount": "Already have an account?",
+      "signIn": "Sign In",
+      "loginLink": "Sign in",
+      "registrationSuccess": "Account created successfully",
+      "validation": {
+        "firstNameRequired": "First name is required",
+        "lastNameRequired": "Last name is required",
+        "emailRequired": "Email is required",
+        "emailInvalid": "Please enter a valid email",
+        "phoneRequired": "Phone number is required",
+        "phoneInvalid": "Please enter a valid phone number",
+        "passwordRequired": "Password is required",
+        "passwordMinLength": "Password must be at least 8 characters",
+        "dateRequired": "Date of birth is required",
+        "termsRequired": "You must agree to the terms",
+        "privacyRequired": "You must agree to the privacy policy"
+      }
+    },
+    "otp": {
+      "title": "Verify OTP",
+      "subtitle": "Enter the 6-digit code sent to your email/phone",
+      "otpPlaceholder": "000000",
+      "verifyButton": "Verify OTP",
+      "resendButton": "Resend Code",
+      "otpSent": "OTP sent successfully",
+      "otpVerified": "OTP verified successfully",
+      "otpError": "Invalid OTP",
+      "otpExpired": "OTP has expired",
+      "attemptsRemaining": "Attempts remaining: {{count}}"
+    },
+    "profile": {
+      "title": "My Profile",
+      "personalInfo": "Personal Information",
+      "preferences": "Preferences",
+      "verification": "Account Verification",
+      "stats": "Your Statistics",
+      "verified": "Verified",
+      "partialVerified": "Partially Verified",
+      "notVerified": "Not Verified",
+      "editProfile": "Edit Profile",
+      "saveChanges": "Save Changes",
+      "cancel": "Cancel",
+      "logout": "Logout"
+    }
+  },
+  "booking": {
+    "title": "Book Your Ride",
+    "selectVehicle": "Select Vehicle",
+    "scooterDescription": "Perfect for city commuting and short trips",
+    "tempoDescription": "Ideal for business deliveries and group transportation",
+    "deliveryDescription": "Designed for efficient urban deliveries and logistics",
+    "features": {
+      "range": "Range",
+      "speed": "Top Speed",
+      "efficient": "Energy Efficient",
+      "capacity": "Capacity",
+      "power": "Power",
+      "heavy": "Heavy Duty",
+      "cargo": "Cargo Space",
+      "delivery": "Delivery Ready",
+      "reliable": "Reliable"
+    },
+    "selectPlan": "Select Plan",
+    "personalDetails": "Personal Details",
+    "payment": "Payment",
+    "confirmation": "Booking Confirmation",
+    "vehicleTypes": {
+      "scooter": "Scooter", 
+      "tempo": "Tempo",
+      "delivery": "Delivery EV"
+    },
+    "hourly": "Hourly",
+      "daily": "Daily",
+      "weekly": "Weekly",
+      "monthly": "Monthly",
+    "status": {
+      "pending": "Pending",
+      "confirmed": "Confirmed",
+      "active": "Active",
+      "completed": "Completed",
+      "cancelled": "Cancelled"
+    },
+    "summary": {
+      "bookingReference": "Booking Reference",
+      "vehicle": "Vehicle",
+      "pickupDate": "Pickup Date",
+      "dropoffDate": "Dropoff Date",
+      "duration": "Duration",
+      "totalCost": "Total Cost",
+      "deposit": "Security Deposit"
+    }
+  },
+  "vehicles": {
+    "title": "Available Vehicles",
+    "electricScooter": "Electric Scooter",
+    "electricBike": "Electric Bike",
+    "electricTempo": "Electric Tempo",
+    "deliveryEV": "Delivery EV",
+    "scooterDescription": "Perfect for city commuting and short trips",
+    "tempoDescription": "Ideal for business deliveries and group transportation",
+    "deliveryDescription": "Designed for efficient urban deliveries and logistics",
+    "ourFleet": "Our EV Fleet",
+    "fleetDescription": "Choose the right electric vehicle for your needs",
+    "perDay": "per day",
+    "viewDetails": "View Details",
+    "bookNow": "Book Now",
+    "back": "Back",
+    "similarVehicles": "Similar Vehicles",
+    "features": "Features",
+    "filterByType": "Filter by Type",
+    "filterByPrice": "Filter by Price",
+    "sortBy": "Sort by",
+    "priceLowToHigh": "Price: Low to High",
+    "priceHighToLow": "Price: High to Low",
+    "newestFirst": "Newest First",
+    "rating": "Rating",
+    "availability": "Availability",
+    "available": "Available",
+    "unavailable": "Unavailable",
+    "perHour": "per hour",
+    "hourly": {
+      "title": "Hourly Rentals",
+      "description": "Quick trips and delivery runs",
+      "price": "/hour"
+    },
+    "daily": {
+      "title": "Daily Rentals", 
+      "description": "Perfect for daily business use",
+      "price": "/day",
+      "features": {
+        "commitment": "No long commitment",
+        "maintenance": "Maintenance included",
+        "flexible": "Flexible usage"
+      }
+    },
+    "weekly": {
+      "title": "Weekly Rentals",
+      "description": "Save on weekly business rentals",
+      "price": "/week",
+      "features": {
+        "cost": "Lower daily cost",
+        "support": "Priority support",
+        "ideal": "Ideal for delivery business"
+      }
+    },
+    "monthly": {
+      "title": "Monthly Rentals",
+      "description": "Best value for fleet operations",
+      "price": "/month",
+      "features": {
+        "value": "Best savings",
+        "usage": "Long-term usage",
+        "business": "Business friendly"
+      }
+    },
+    "vehicleFeatures": {
+      "insurance": "Insurance Included",
+      "maintenance": "Free Maintenance",
+      "support": "24/7 Support",
+      "flexible": "Flexible Cancellation"
+    }
+  },
+  "business": {
+    "title": "Business Solutions",
+    "subtitle": "Empowering your business with smart mobility",
+    "evFleetSolutions": "EV Fleet Solutions for Businesses",
+    "evFleetDescription": "Power your delivery or logistics operations with cost-effective electric vehicles.",
+    "corporate": "Corporate Plans",
+    "fleet": "Fleet Management",
+    "custom": "Custom Solutions",
+    "contactSales": "Contact Sales",
+    "getQuote": "Get Quote",
+    "contactForFleetDeals": "Contact for Fleet Deals",
+    "businessEvFleetAlt": "Business EV Fleet",
+    "benefits": {
+      "costEffective": "Cost Effective",
+      "scalable": "Scalable",
+      "managed": "Fully Managed",
+      "support": "Dedicated Support"
+    }
+  },
+  "errors": {
+    "network": "Network error. Please check your connection.",
+    "server": "Server error. Please try again later.",
+    "notFound": "Page not found.",
+    "unauthorized": "You are not authorized to access this page.",
+    "validation": "Please check your input and try again.",
+    "unknown": "An unknown error occurred."
+  },
+  "footer": {
+    "tagline": "Smart EV Rentals for India",
+    "about": "About Us",
+    "contact": "Contact",
+    "privacy": "Privacy Policy",
+    "terms": "Terms of Service",
+    "help": "Help Center",
+    "faq": "FAQ",
+    "copyright": "© 2026 Chalak Mobility. All rights reserved."
+  },
+  "profile": {
+    "edit": "Edit Profile",
+    "settings": "Settings",
+    "recentBookings": "Recent Bookings"
+  }
+}

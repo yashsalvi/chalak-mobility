@@ -1,0 +1,257 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 40px;
+  background: rgba(11,31,42,0.9);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  font-size: 24px;
+  font-weight: 600;
+}
+
+.logo img {
+  height: 40px;
+  object-fit: contain;
+}
+
+nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+nav a {
+  position: relative;
+  margin: 0 15px;
+  cursor: pointer;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 0;
+  color: #e7f2f5;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+lucide-icon {
+  stroke-width: 2;
+  transition: 0.3s;
+}
+
+nav a:hover lucide-icon {
+  transform: scale(1.1);
+  stroke: #00E676;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0%;
+  height: 2px;
+  background: #00E676;
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+nav a:hover {
+  color: #00E676;
+}
+
+nav a.active {
+  color: #00E676;
+}
+
+nav a.active::after {
+  width: 100%;
+}
+
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.btn-primary {
+  position: relative;
+  overflow: hidden;
+}
+
+.btn-primary::after {
+  content: '';
+  position: absolute;
+  width: 0;
+  height: 0;
+  background: rgba(255,255,255,0.3);
+  border-radius: 50%;
+  transition: 0.5s;
+}
+
+.btn-primary:active::after {
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+}
+
+.profile-dropdown {
+  position: relative;
+}
+
+.profile-btn {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  border-radius: 8px;
+  padding: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  color: #e7f2f5;
+}
+
+.profile-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: #00E676;
+}
+
+.profile-btn.active {
+  background: rgba(0, 230, 118, 0.1);
+  border-color: #00E676;
+}
+
+.profile-menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  margin-top: 8px;
+  background: rgba(11, 31, 42, 0.95);
+  border: 1px solid rgba(0, 230, 118, 0.3);
+  border-radius: 12px;
+  padding: 0;
+  min-width: 260px;
+  max-width: 320px;
+  z-index: 1000;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+}
+
+.profile-menu-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+}
+
+.profile-menu-item {
+  width: 100%;
+  text-align: left;
+  background: transparent;
+  border: none;
+  color: #eef8fb;
+  padding: 12px 16px;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: background 0.2s ease, color 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+}
+
+.profile-menu-item:hover {
+  background: rgba(0, 230, 118, 0.08);
+  color: #00e676;
+}
+
+.menu-item-content {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.profile-menu-item lucide-icon {
+  transition: transform 0.2s ease;
+}
+
+.profile-menu-item lucide-icon.open {
+  transform: rotate(180deg);
+}
+
+.recent-bookings-popup {
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding: 14px 14px 12px;
+}
+
+.recent-bookings-panel {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  z-index: 2000;
+  pointer-events: none;
+}
+
+.recent-bookings-panel-backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.25);
+  pointer-events: auto;
+}
+
+.recent-bookings-panel-content {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 370px;
+  max-width: 90vw;
+  background: rgba(11, 31, 42, 0.98);
+  border-right: 1px solid rgba(0,230,118,0.15);
+  box-shadow: 4px 0 32px rgba(0,0,0,0.18);
+  z-index: 1;
+  pointer-events: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 0 0 0;
+  animation: slideInLeft 0.25s cubic-bezier(.4,1.6,.6,1) 1;
+}
+
+@keyframes slideInLeft {
+  from { transform: translateX(-100%); opacity: 0; }
+  to { transform: translateX(0); opacity: 1; }
+}
+
+.close-btn {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  background: transparent;
+  border: none;
+  color: #b0bec5;
+  cursor: pointer;
+  z-index: 2;
+  padding: 4px;
+  border-radius: 50%;
+  transition: background 0.2s;
+}
+.close-btn:hover {
+  background: rgba(0,230,118,0.08);
+  color: #00e676;
+}
+
+.recent-bookings-panel-content app-recent-bookings {
+  margin-top: 48px;
+  width: 100%;
+  min-height: 100vh;
+  display: block;
+}
+
+

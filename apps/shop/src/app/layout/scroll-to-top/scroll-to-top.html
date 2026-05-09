@@ -1,0 +1,9 @@
+<button
+  *ngIf="isVisible"
+  class="scroll-to-top"
+  (click)="scrollToTop()"
+  title="{{ 'common.scrollToTop' | translate }}"
+  aria-label="{{ 'common.scrollToTop' | translate }}"
+>
+  <lucide-icon name="arrow-up" size="20"></lucide-icon>
+</button>

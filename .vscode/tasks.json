@@ -1,0 +1,32 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label": "Verify Shop Build",
+			"type": "shell",
+			"command": "npm exec nx build shop --skip-nx-cache",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Verify Shop Build 2",
+			"type": "shell",
+			"command": "npm exec nx build shop --skip-nx-cache",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
+		},
+		{
+			"label": "Verify Shop Build Verbose",
+			"type": "shell",
+			"command": "npm exec nx build shop --skip-nx-cache --verbose",
+			"isBackground": false,
+			"problemMatcher": [
+				"$tsc"
+			]
+		}
+	]
+}

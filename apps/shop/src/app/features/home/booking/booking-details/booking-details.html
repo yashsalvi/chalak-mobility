@@ -1,0 +1,240 @@
+<div class="booking-details">
+  <h3>Step 3: Booking Details</h3>
+
+  <form [formGroup]="form" class="details-form">
+    <!-- Contact Information Section -->
+    <div class="section">
+      <h4>Contact Information</h4>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="firstName">{{ 'auth.register.firstName' | translate }} *</label>
+          <input
+            type="text"
+            id="firstName"
+            formControlName="firstName"
+            [class.has-error]="hasError('firstName')"
+            aria-label="{{ 'auth.register.firstName' | translate }}"
+            placeholder="John"
+          />
+          <span class="error-message" *ngIf="hasError('firstName')">
+            {{ getError('firstName') }}
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="lastName">{{ 'auth.register.lastName' | translate }} *</label>
+          <input
+            type="text"
+            id="lastName"
+            formControlName="lastName"
+            [class.has-error]="hasError('lastName')"
+            aria-label="{{ 'auth.register.lastName' | translate }}"
+            placeholder="Doe"
+          />
+          <span class="error-message" *ngIf="hasError('lastName')">
+            {{ getError('lastName') }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="email">{{ 'auth.register.email' | translate }} *</label>
+        <input
+          type="email"
+          id="email"
+          formControlName="email"
+          [class.has-error]="hasError('email')"
+          aria-label="{{ 'auth.register.email' | translate }}"
+          placeholder="john@example.com"
+        />
+        <span class="error-message" *ngIf="hasError('email')">
+          {{ getError('email') }}
+        </span>
+      </div>
+
+      <div class="form-row">
+        <div class="form-group" style="flex: 0 0 120px">
+          <label for="phoneCountryCode">{{ 'common.phoneNumber' | translate }} - {{ 'common.countryCode' | translate }} *</label>
+          <select
+            id="phoneCountryCode"
+            formControlName="phoneCountryCode"
+            aria-label="{{ 'common.phoneNumber' | translate }} - {{ 'common.countryCode' | translate }}"
+          >
+            <option *ngFor="let country of countryPhoneCodes" [value]="country.code">
+              {{ country.code }} ({{ country.country }})
+            </option>
+          </select>
+        </div>
+
+        <div class="form-group" style="flex: 1">
+          <label for="phone">{{ 'common.phoneNumber' | translate }} *</label>
+          <input
+            type="tel"
+            id="phone"
+            formControlName="phone"
+            [class.has-error]="hasError('phone')"
+            aria-label="{{ 'common.phoneNumber' | translate }}"
+            placeholder="1234567890"
+          />
+          <span class="error-message" *ngIf="hasError('phone')">
+            {{ getError('phone') }}
+          </span>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="dateOfBirth">{{ 'auth.register.dateOfBirth' | translate }} *</label>
+        <input
+          type="date"
+          id="dateOfBirth"
+          formControlName="dateOfBirth"
+          [class.has-error]="hasError('dateOfBirth')"
+          aria-label="{{ 'auth.register.dateOfBirth' | translate }}"
+        />
+        <span class="help-text">{{ 'common.mustBeYearsOld' | translate }}</span>
+        <span class="error-message" *ngIf="hasError('dateOfBirth')">
+          {{ getError('dateOfBirth') }}
+        </span>
+      </div>
+    </div>
+
+    <!-- License Information Section -->
+    <div class="section">
+      <h4>Driver's License</h4>
+
+      <div class="form-row">
+        <div class="form-group">
+          <label for="licenseNumber">{{ 'common.driversLicenseNumber' | translate }} *</label>
+          <input
+            type="text"
+            id="licenseNumber"
+            formControlName="licenseNumber"
+            [class.has-error]="hasError('licenseNumber')"
+            aria-label="{{ 'common.driversLicenseNumber' | translate }}"
+            placeholder="DL123456"
+          />
+          <span class="error-message" *ngIf="hasError('licenseNumber')">
+            {{ getError('licenseNumber') }}
+          </span>
+        </div>
+
+        <div class="form-group">
+          <label for="licenseCountry">{{ 'common.driversLicenseCountry' | translate }} *</label>
+          <select
+            id="licenseCountry"
+            formControlName="licenseCountry"
+            aria-label="{{ 'common.driversLicenseCountry' | translate }}"
+          >
+            <option value="IN">India</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="licenseExpiryDate">{{ 'common.driversLicenseExpiryDate' | translate }} *</label>
+        <input
+          type="date"
+          id="licenseExpiryDate"
+          formControlName="licenseExpiryDate"
+          [class.has-error]="hasError('licenseExpiryDate')"
+          aria-label="{{ 'common.driversLicenseExpiryDate' | translate }}"
+        />
+        <span class="error-message" *ngIf="hasError('licenseExpiryDate')">
+          {{ getError('licenseExpiryDate') }}
+        </span>
+      </div>
+    </div>
+
+    <!-- Pickup Location Section -->
+    <div class="section">
+      <h4>{{ 'booking.pickupLocation' | translate }}</h4>
+
+      <div class="form-group">
+        <label for="pickupType">{{ 'booking.pickupType' | translate }} *</label>
+        <select
+          id="pickupType"
+          formControlName="pickupType"
+          aria-label="{{ 'booking.pickupType' | translate }}"
+        >
+          <option *ngFor="let type of locationTypes" [value]="type.value">
+            {{ type.label }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="form.get('pickupType')?.value === 'custom'">
+        <label for="pickupAddress">{{ 'booking.customPickupAddress' | translate }}</label>
+        <input
+          type="text"
+          id="pickupAddress"
+          formControlName="pickupAddress"
+          aria-label="{{ 'booking.customPickupAddress' | translate }}"
+          placeholder="Street address"
+        />
+      </div>
+
+      <div class="form-group" *ngIf="form.get('pickupType')?.value === 'custom'">
+        <label for="pickupCity">{{ 'booking.pickupCity' | translate }}</label>
+        <input
+          type="text"
+          id="pickupCity"
+          formControlName="pickupCity"
+          aria-label="{{ 'booking.pickupCity' | translate }}"
+          placeholder="City name"
+        />
+      </div>
+    </div>
+
+    <!-- Dropoff Location Section -->
+    <div class="section">
+      <h4>{{ 'booking.dropoffLocation' | translate }}</h4>
+
+      <div class="form-group">
+        <label for="dropoffType">{{ 'booking.dropoffType' | translate }} *</label>
+        <select
+          id="dropoffType"
+          formControlName="dropoffType"
+          aria-label="{{ 'booking.dropoffType' | translate }}"
+        >
+          <option *ngFor="let type of locationTypes" [value]="type.value">
+            {{ type.label }}
+          </option>
+        </select>
+      </div>
+
+      <div class="form-group" *ngIf="form.get('dropoffType')?.value === 'custom'">
+        <label for="dropoffAddress">{{ 'booking.customDropoffAddress' | translate }}</label>
+        <input
+          type="text"
+          id="dropoffAddress"
+          formControlName="dropoffAddress"
+          aria-label="{{ 'booking.customDropoffAddress' | translate }}"
+          placeholder="Street address"
+        />
+      </div>
+
+      <div class="form-group" *ngIf="form.get('dropoffType')?.value === 'custom'">
+        <label for="dropoffCity">{{ 'booking.dropoffCity' | translate }}</label>
+        <input
+          type="text"
+          id="dropoffCity"
+          formControlName="dropoffCity"
+          aria-label="{{ 'booking.dropoffCity' | translate }}"
+          placeholder="City name"
+        />
+      </div>
+    </div>
+
+  </form>
+
+  <!-- Action Button -->
+  <button
+    class="btn btn--primary btn--full"
+    (click)="onNext()"
+    [disabled]="form.invalid"
+    aria-label="{{ 'booking.continueToKYCStep' | translate }}"
+  >
+    {{ 'booking.continueToKYCStep' | translate }}
+  </button>
+</div>

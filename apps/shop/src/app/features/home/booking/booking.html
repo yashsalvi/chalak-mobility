@@ -1,0 +1,117 @@
+<section class="booking container">
+  <div class="booking__header">
+    <span class="booking__eyebrow">Reserve your EV</span>
+    <h2>Complete Your Booking</h2>
+    <p>Choose your vehicle, plan, driver details, and payment in a guided flow.</p>
+  </div>
+
+  <div
+    *ngIf="showConfirmation"
+    class="notification"
+    [class.notification--error]="confirmationMessage.includes('error') || confirmationMessage.includes('Error')"
+  >
+    <p>{{ confirmationMessage }}</p>
+    <button (click)="showConfirmation = false" class="notification__close">&times;</button>
+  </div>
+
+  <div class="steps">
+    <span
+      *ngFor="let step of [1, 2, 3, 4, 5]"
+      [class.active]="currentStep === step"
+      [class.completed]="isStepCompleted(step)"
+      (click)="jumpToStep(step)"
+      [title]="getStepLabel(step)"
+    >
+      <span class="step__number">{{ step }}</span>
+      <span class="step__label">{{ getStepLabel(step) }}</span>
+    </span>
+  </div>
+
+  <div *ngIf="isLoading$ | async" class="loading">
+    <div class="loading__spinner"></div>
+    <p>Processing your booking...</p>
+  </div>
+
+  <div class="content" *ngIf="!(isLoading$ | async)">
+    <app-booking-vehicle
+      *ngIf="currentStep === 1"
+      (updateData)="onVehicleStepComplete($event)"
+      [errors]="stepValidationErrors"
+      [formData]="(bookingForm$ | async)?.vehicleSelection ?? null"
+    >
+    </app-booking-vehicle>
+
+    <app-booking-plan
+      *ngIf="currentStep === 2"
+      (updateData)="onPlanStepComplete($event)"
+      [errors]="stepValidationErrors"
+      [baseCost]="(bookingForm$ | async)?.costBreakdown?.rentalCost ?? 0"
+      [formData]="(bookingForm$ | async)?.planDetails ?? null"
+    >
+    </app-booking-plan>
+
+    <app-booking-details
+      *ngIf="currentStep === 3"
+      (updateData)="onDetailsStepComplete($event)"
+      [errors]="stepValidationErrors"
+      [formData]="(bookingForm$ | async)?.bookingDetails ?? null"
+    >
+    </app-booking-details>
+
+    <app-booking-kyc
+      *ngIf="currentStep === 4"
+      (updateData)="onKycStepComplete($event)"
+      [errors]="stepValidationErrors"
+      [formData]="(bookingForm$ | async)?.kycDetails ?? null"
+    >
+    </app-booking-kyc>
+
+    <app-booking-payment
+      *ngIf="currentStep === 5"
+      (updateData)="onPaymentStepComplete($event)"
+      [errors]="stepValidationErrors"
+      [formData]="(bookingForm$ | async)?.paymentInfo ?? null"
+      [totalCost]="(bookingForm$ | async)?.costBreakdown?.totalCost ?? 0"
+      [costBreakdown]="(bookingForm$ | async)?.costBreakdown ?? null"
+    >
+    </app-booking-payment>
+
+    <app-booking-success
+      *ngIf="currentStep === COMPLETION_STEP"
+      [bookingResponse]="bookingResponse"
+    >
+    </app-booking-success>
+  </div>
+
+  <div class="booking__actions" *ngIf="currentStep < COMPLETION_STEP">
+    <button
+      *ngIf="currentStep > 1"
+      class="btn btn--secondary"
+      (click)="prev()"
+      [disabled]="!canGoBack"
+      [attr.aria-label]="getBackButtonLabel()"
+    >
+      Back
+    </button>
+
+    <div class="booking__progress">
+      <span>Step {{ currentStep }} of {{ STEP_COUNT }}</span>
+    </div>
+
+    <button
+      class="btn btn--primary"
+      (click)="next()"
+      [disabled]="!canProceed"
+      [attr.aria-label]="getNextButtonLabel()"
+    >
+      {{ getNextButtonLabel() }}
+    </button>
+  </div>
+
+  <div *ngIf="(navigationState$ | async)?.hasUnsavedChanges" class="warning">
+    <p>
+      <lucide-icon name="alert-triangle" size="16"></lucide-icon>
+      You have unsaved changes. Your progress will be saved automatically.
+    </p>
+  </div>
+</section>

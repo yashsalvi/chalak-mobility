@@ -1,0 +1,109 @@
+<div class="plan-selection">
+  <h3>Step 2: Select Plan & Addons</h3>
+
+  <!-- Insurance Plans -->
+  <div class="plans-section">
+    <h4>Insurance Coverage</h4>
+    <div class="plans-grid">
+      <div
+        *ngFor="let plan of insurancePlans | keyvalue"
+        class="plan-card"
+        [class.selected]="form.get('insuranceType')?.value === plan.key"
+        (click)="form.patchValue({ insuranceType: plan.key })"
+        role="radio"
+        tabindex="0"
+        (keydown.enter)="form.patchValue({ insuranceType: plan.key })"
+      >
+        <div class="plan-header">
+          <h5>{{ plan.key | uppercase }}</h5>
+          <span class="plan-price">₹{{ plan.value.cost }}/trip</span>
+        </div>
+        <p class="plan-coverage">{{ plan.value.coverage }}</p>
+        <span *ngIf="form.get('insuranceType')?.value === plan.key" class="selected-badge">
+          <lucide-icon name="check" size="14"></lucide-icon> Selected
+        </span>
+      </div>
+    </div>
+    <span class="error-message" *ngIf="hasError('insuranceType')">
+      {{ getError('insuranceType') }}
+    </span>
+  </div>
+
+  <!-- Ride Type -->
+  <div class="ride-type-section">
+    <h4>Ride Type</h4>
+    <div class="ride-type-grid">
+      <div
+        *ngFor="let ride of rideTypes"
+        class="ride-card"
+        [class.selected]="form.get('rideType')?.value === ride.type"
+        (click)="form.patchValue({ rideType: ride.type })"
+        role="radio"
+        tabindex="0"
+        (keydown.enter)="form.patchValue({ rideType: ride.type })"
+      >
+        <h5>{{ ride.label }}</h5>
+        <p>{{ ride.description }}</p>
+        <span *ngIf="form.get('rideType')?.value === ride.type" class="selected-badge">
+          <lucide-icon name="check" size="14"></lucide-icon> Selected
+        </span>
+      </div>
+    </div>
+    <span class="error-message" *ngIf="hasError('rideType')">
+      {{ getError('rideType') }}
+    </span>
+  </div>
+
+  <!-- Addons -->
+  <div class="addons-section" *ngIf="addonsList.length > 0">
+    <h4>Optional Addons</h4>
+    <div class="addons-list">
+      <div *ngFor="let addon of addonsList" class="addon-item">
+        <label class="addon-checkbox">
+          <input
+            type="checkbox"
+            [checked]="hasAddon(addon.id)"
+            (change)="toggleAddon(addon.id)"
+            [id]="'addon-' + addon.id"
+            aria-label="Add {{ addon.name }} to booking"
+          />
+          <span class="checkmark"></span>
+          <span class="addon-label">
+            {{ addon.name }}
+            <span *ngIf="addon.cost > 0" class="addon-price">+₹{{ addon.cost }}</span>
+          </span>
+        </label>
+      </div>
+    </div>
+  </div>
+
+  <!-- Cost Breakdown -->
+  <div class="cost-breakdown">
+    <div class="cost-item">
+      <span>Base Cost:</span>
+      <strong>₹{{ baseCost }}</strong>
+    </div>
+    <div class="cost-item" *ngIf="selectedInsuranceCost > 0">
+      <span>Insurance:</span>
+      <strong>₹{{ selectedInsuranceCost }}</strong>
+    </div>
+    <div class="cost-item" *ngIf="selectedAddonsCost > 0">
+      <span>Addons:</span>
+      <strong>₹{{ selectedAddonsCost }}</strong>
+    </div>
+    <div class="cost-item total">
+      <span>Total for this step:</span>
+      <strong>₹{{ selectedInsuranceCost + selectedAddonsCost }}</strong>
+    </div>
+  </div>
+
+  <!-- Action Button -->
+  <button
+    class="btn btn--primary btn--full"
+    (click)="onNext()"
+    [disabled]="form.invalid"
+    aria-label="Continue to booking details"
+  >
+    Continue to Booking Details
+  </button>
+</div>

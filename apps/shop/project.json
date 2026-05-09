@@ -18,12 +18,20 @@
           {
             "glob": "**/*",
             "input": "apps/shop/public"
-          }
+          },
+            {
+    "glob": "**/*",
+    "input": "apps/shop/src/assets",
+    "output": "assets"
+  }
         ],
         "styles": ["apps/shop/src/styles.css"],
         "server": "apps/shop/src/main.server.ts",
         "ssr": {
           "entry": "apps/shop/src/server.ts"
+        },
+        "prerender": {
+          "routesFile": "apps/shop/src/app/routes.ts"
         },
         "outputMode": "server"
       },

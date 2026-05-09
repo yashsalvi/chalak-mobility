@@ -1,0 +1,137 @@
+.vehicle-detail {
+  background: var(--dark-navy);
+  min-height: 100vh;
+  padding: 40px 0;
+}
+
+.back-btn {
+  background: none;
+  border: 1px solid var(--primary-green);
+  color: var(--primary-green);
+  padding: 10px 20px;
+  border-radius: 8px;
+  cursor: pointer;
+  margin-bottom: 30px;
+  transition: 0.3s ease;
+}
+
+.back-btn:hover {
+  background: var(--primary-green);
+  color: #000;
+}
+
+.vehicle-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 40px;
+  margin-bottom: 60px;
+  background: linear-gradient(145deg, #112b3c, #0b1f2a);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(0, 230, 118, 0.1);
+}
+
+.vehicle-image {
+  position: relative;
+  border-radius: 15px;
+  overflow: hidden;
+  height: 300px;
+}
+
+.vehicle-image img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.badge {
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  background: var(--primary-green);
+  color: #000;
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.vehicle-info h1 {
+  font-size: 2.5rem;
+  margin-bottom: 10px;
+  color: #fff;
+}
+
+.vehicle-type {
+  font-size: 1.2rem;
+  color: #aaa;
+  margin-bottom: 20px;
+}
+
+.price {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: var(--primary-green);
+  margin-bottom: 30px;
+}
+
+.price span {
+  font-size: 1rem;
+  color: #aaa;
+}
+
+.features h3 {
+  font-size: 1.5rem;
+  margin-bottom: 15px;
+  color: #fff;
+}
+
+.feature-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 30px;
+}
+
+.feature-item {
+  background: rgba(0, 230, 118, 0.1);
+  color: var(--primary-green);
+  padding: 8px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+}
+
+.book-btn {
+  padding: 15px 30px;
+  font-size: 1.1rem;
+}
+
+.vehicle-table-section {
+  background: linear-gradient(145deg, #112b3c, #0b1f2a);
+  border-radius: 20px;
+  padding: 40px;
+  border: 1px solid rgba(0, 230, 118, 0.1);
+}
+
+.vehicle-table-section h2 {
+  font-size: 2rem;
+  margin-bottom: 30px;
+  color: #fff;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .vehicle-header {
+    grid-template-columns: 1fr;
+    gap: 20px;
+    padding: 20px;
+  }
+  
+  .vehicle-info h1 {
+    font-size: 2rem;
+  }
+  
+  .price {
+    font-size: 2rem;
+  }
+}

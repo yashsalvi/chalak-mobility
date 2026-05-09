@@ -1,0 +1,15 @@
+<section class="vehicles">
+  <div class="container">
+    <div class="section-header">
+      <h2>{{ 'vehicles.title' | translate }}</h2>
+      <p>{{ 'vehicles.fleetDescription' | translate }}</p>
+    </div>
+    
+    <div class="grid">
+      <app-vehicle-card 
+        *ngFor="let vehicle of allVehicles"
+        [vehicle]="vehicle">
+      </app-vehicle-card>
+    </div>
+  </div>
+</section>

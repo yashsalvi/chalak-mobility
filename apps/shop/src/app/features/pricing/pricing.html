@@ -1,0 +1,41 @@
+<section class="pricing">
+  <div class="container">
+
+    <div class="section-header">
+      <h2>{{ 'pricing.title' | translate }}</h2>
+      <p>{{ 'pricing.subtitle' | translate }}</p>
+    </div>
+
+    <div class="grid">
+
+      <div 
+        class="plan" 
+        *ngFor="let p of plans"
+        [class.highlight]="p.highlight"
+      >
+
+        <div class="tag" *ngIf="p.highlight">{{ 'pricing.bestValue' | translate }}</div>
+
+        <h3>{{ p.name | translate }}</h3>
+
+        <div class="price">
+          ₹{{ p.price }}
+          <span *ngIf="p.name === 'pricing.daily.title'">{{ 'pricing.daily.price' | translate }}</span>
+          <span *ngIf="p.name === 'pricing.weekly.title'">{{ 'pricing.weekly.price' | translate }}</span>
+          <span *ngIf="p.name === 'pricing.monthly.title'">{{ 'pricing.monthly.price' | translate }}</span>
+        </div>
+
+        <p class="desc">{{ p.desc | translate }}</p>
+
+        <ul>
+          <li *ngFor="let f of p.features">✔ {{ f | translate }}</li>
+        </ul>
+
+        <button class="btn-primary">{{ 'pricing.choosePlan' | translate }}</button>
+
+      </div>
+
+    </div>
+
+  </div>
+</section>

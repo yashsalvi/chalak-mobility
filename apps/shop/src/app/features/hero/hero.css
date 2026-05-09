@@ -1,0 +1,33 @@
+.hero {
+  height: 100vh;
+  background: linear-gradient(rgba(11,31,42,0.80), rgba(11,31,42,0.90)),
+              url('/assets/scooter.webp') center/cover no-repeat;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+.overlay {
+  animation: fadeIn 1.2s ease-in-out;
+}
+
+h1 {
+  font-size: 3rem;
+}
+
+p {
+  color: #ccc;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

@@ -1,0 +1,163 @@
+<div class="vehicle-selection">
+  <h3>Step 1: Select Vehicle & Dates</h3>
+
+  <!-- Date Selection -->
+  <form [formGroup]="form" class="date-section">
+    <div class="form-group">
+      <label for="startDate">Start Date</label>
+      <input
+        type="date"
+        id="startDate"
+        formControlName="startDate"
+        [attr.min]="minDate"
+        [class.has-error]="hasError('startDate')"
+        aria-label="Vehicle rental start date"
+      />
+      <span class="error-message" *ngIf="hasError('startDate')">
+        {{ getError('startDate') }}
+      </span>
+    </div>
+
+    <div class="form-group">
+      <label for="endDate">End Date</label>
+      <input
+        type="date"
+        id="endDate"
+        formControlName="endDate"
+        [attr.min]="form.get('startDate')?.value || minDate"
+        [class.has-error]="hasError('endDate') || !!dateRangeError"
+        aria-label="Vehicle rental end date"
+      />
+      <span class="error-message" *ngIf="hasError('endDate')">
+        {{ getError('endDate') }}
+      </span>
+      <span class="error-message" *ngIf="!hasError('endDate') && dateRangeError">
+        {{ dateRangeError }}
+      </span>
+    </div>
+
+    <div class="rental-info" *ngIf="rentalDays > 0">
+      <p class="rental-days">{{ rentalDays }} day{{ rentalDays !== 1 ? 's' : '' }}</p>
+    </div>
+  </form>
+
+  <!-- Vehicle Selection -->
+  <div class="vehicle-section">
+    <h4>Available Vehicles</h4>
+
+    <!-- Loading State -->
+    <div *ngIf="isLoading" class="loading-state">
+      <div class="loading-spinner"></div>
+      <p>{{ 'common.loadingVehicles' | translate }}</p>
+    </div>
+
+    <!-- Error State -->
+    <div *ngIf="loadError && !isLoading" class="error-state">
+      <lucide-icon name="alert-triangle" size="24" class="error-icon"></lucide-icon>
+      <p>{{ loadError }}</p>
+      <button class="btn btn--secondary" (click)="loadVehicles()" aria-label="{{ 'common.retryLoadingVehicles' | translate }}">
+        <lucide-icon name="refresh-cw" size="16"></lucide-icon> {{ 'common.retryLoadingVehicles' | translate }}
+      </button>
+    </div>
+
+    <!-- Vehicle Grid -->
+    <div *ngIf="!isLoading && !loadError" class="vehicle-grid">
+      <div
+        *ngFor="let vehicle of vehicles"
+        class="vehicle-card"
+        [class.selected]="isVehicleSelected(vehicle.id)"
+        [class.disabled]="!vehicle.available"
+        (click)="selectVehicle(vehicle.id)"
+        [attr.tabindex]="vehicle.available ? 0 : -1"
+        (keydown.enter)="selectVehicle(vehicle.id)"
+        role="radio"
+        [attr.aria-checked]="isVehicleSelected(vehicle.id)"
+      >
+        <div class="vehicle-header">
+          <h5>{{ vehicle.name }}</h5>
+          <span class="vehicle-type">{{ vehicle.type | titlecase }}</span>
+        </div>
+
+        <div class="vehicle-specs">
+          <div class="spec-item">
+            <lucide-icon name="zap" size="14"></lucide-icon>
+            <span>{{ vehicle.specifications.range }}km range</span>
+          </div>
+          <div class="spec-item">
+            <lucide-icon name="trending-up" size="14"></lucide-icon>
+            <span>{{ vehicle.specifications.topSpeed }}km/h</span>
+          </div>
+          <div class="spec-item">
+            <lucide-icon name="box" size="14"></lucide-icon>
+            <span>{{ vehicle.specifications.loadCapacity }}kg</span>
+          </div>
+        </div>
+
+        <div class="vehicle-features" *ngIf="vehicle.features.length > 0">
+          <div class="feature-tag" *ngFor="let feature of vehicle.features.slice(0, 3)">
+            {{ feature }}
+          </div>
+          <div class="feature-tag" *ngIf="vehicle.features.length > 3">
+            +{{ vehicle.features.length - 3 }} more
+          </div>
+        </div>
+
+        <div class="vehicle-description">
+          <p>{{ vehicle.description }}</p>
+        </div>
+
+        <div class="vehicle-price">
+          <span class="price">₹{{ vehicle.pricePerDay }}/day</span>
+          <span *ngIf="rentalDays > 0" class="total">
+            × {{ rentalDays }} = ₹{{ vehicle.pricePerDay * rentalDays }}
+          </span>
+        </div>
+
+        <span *ngIf="!vehicle.available" class="unavailable-badge">
+          Not Available
+        </span>
+
+        <span *ngIf="isVehicleSelected(vehicle.id)" class="selected-badge">
+          <lucide-icon name="check" size="14"></lucide-icon> Selected
+        </span>
+      </div>
+    </div>
+
+    <!-- No Vehicles Available -->
+    <div *ngIf="!isLoading && !loadError && vehicles.length === 0" class="empty-state">
+      <lucide-icon name="search" size="48" class="empty-icon"></lucide-icon>
+      <h5>No vehicles available</h5>
+      <p>Try adjusting your dates or check back later.</p>
+    </div>
+
+    <span class="error-message" *ngIf="hasError('vehicleId')">
+      {{ getError('vehicleId') }}
+    </span>
+  </div>
+
+  <!-- Summary -->
+  <div class="summary" *ngIf="selectedVehicle && rentalDays > 0">
+    <div class="summary-item">
+      <span>Vehicle:</span>
+      <strong>{{ selectedVehicle.name }}</strong>
+    </div>
+    <div class="summary-item">
+      <span>Duration:</span>
+      <strong>{{ rentalDays }} day{{ rentalDays !== 1 ? 's' : '' }}</strong>
+    </div>
+    <div class="summary-item total">
+      <span>Estimated Cost:</span>
+      <strong>₹{{ estimatedCost }}</strong>
+    </div>
+  </div>
+
+  <!-- Action Button -->
+  <button
+    class="btn btn--primary btn--full"
+    (click)="onNext()"
+    [disabled]="form.invalid || !selectedVehicle || !!dateRangeError"
+    aria-label="Continue to plan selection"
+  >
+    Continue to Plan Selection
+  </button>
+</div>
