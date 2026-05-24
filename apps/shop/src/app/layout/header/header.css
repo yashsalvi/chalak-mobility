@@ -7,6 +7,8 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .logo {
@@ -81,7 +83,6 @@ nav a.active::after {
   display: flex;
   align-items: center;
   gap: 12px;
-  flex-shrink: 0;
 }
 
 .btn-primary {
