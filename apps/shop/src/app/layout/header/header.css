@@ -7,11 +7,14 @@
   position: sticky;
   top: 0;
   z-index: 10;
+  max-width: 100%;
+  overflow-x: clip;
 }
 
 .logo {
   font-size: 24px;
   font-weight: 600;
+  flex-shrink: 0;
 }
 
 .logo img {
